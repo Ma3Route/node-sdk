@@ -8,7 +8,7 @@ set -e
 
 
 # we require utilities
-source ./script/utils.sh
+source script/utils.sh
 
 
 # variables
@@ -16,11 +16,17 @@ GH_URL="https://github.com/Ma3Route/node-sdk"
 
 
 # ensure we are on master branch
-[ ${TRAVIS_BRANCH} != "master" ] && exit
+[ ${TRAVIS_BRANCH} != "master" ] && {
+    log "we are not on master branch (${TRAVIS_BRANCH})" 2
+    exit
+}
 
 
 # ignore pull requests
-[ ${TRAVIS_PULL_REQUEST} ] || exit
+[ ${TRAVIS_PULL_REQUEST} ] && {
+    log "it is another awesome pull-request" 2
+    exit
+}
 
 
 log "building docs" 0
@@ -31,18 +37,21 @@ log "cloning repo" 0
 git clone "${GH_URL}" _out
 
 
-log "changing to the gh-pages branch" 0
+log "getting into repo and switching branches" 0
+cd _out
 git checkout gh-pages
 
 
-log "getting into repo and removing all current files" 0
-cd _out
-git rm -rf *
-rm -rf *
+# ensure there is a version bump
+VERSION="$(node -e "console.log(require('./package.json').version)")"
+[ -d ${VERSION} ] && {
+    log "version bump required" 2
+    exit
+}
 
 
-log "copying jsdoc output to master branch" 0
-cp -r ../docs/* .
+log "copying jsdoc output" 0
+mv ../docs/ma3route-sdk/${VERSION} .
 
 
 log "configuring and committing changes" 0
