@@ -23,7 +23,7 @@ GH_URL="https://github.com/Ma3Route/node-sdk"
 
 
 # ignore pull requests
-[ ${TRAVIS_PULL_REQUEST} ] && {
+[ ${TRAVIS_PULL_REQUEST} == false ] || {
     log "it is another awesome pull-request" 2
     exit
 }
