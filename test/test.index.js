@@ -20,9 +20,11 @@ describe("exported module", function() {
     });
 
     it("has exported modules", function() {
-        var innerModules = ["auth", "bannerAdverts", "drivingReports",
+        var innerModules = [
+            "auth", "bannerAdverts", "drivingReports",
             "listedAdverts", "news", "places", "sse", "trafficUpdates",
-            "users", "utils", "misc"];
+            "users", "utils", "misc",
+        ];
         innerModules.forEach(function(mod) {
             should.strictEqual(sdk[mod], require("../lib/" + mod));
         });
