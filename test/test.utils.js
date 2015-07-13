@@ -506,4 +506,10 @@ describe("utils.removeURIOptions", function() {
         should(arg1.proxy).be.Undefined;
         should(arg2.proxy).be.Undefined;
     });
+
+    it("leaves other arguments untouched", function() {
+        var params = { proxy: "proxy", limit: 70 };
+        utils.removeURIOptions(params);
+        should.equal(params.limit, 70);
+    });
 });
