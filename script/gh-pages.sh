@@ -3,6 +3,26 @@
 #
 
 
+#
+# Algorithm used while generating and pushing documentation
+#
+# - check if this is a commit on the master branch. If true, continue.
+#   Otherwise exit
+# - ensure it is not a pull-request not being drafted to master branch.
+#   If true, continue. Otherwise, exit
+# - generate the documentation immediately
+# - clone the repo into a directory `_out.`
+# - cd into the cloned repo
+# - checkout the gh-pages branch
+# - check if documentation with current version does not exist. If true,
+#   contine. Otherwise exit
+# - copy over the documentation
+# - git add and commit the changes, marking it with the hash of the
+#   current commit
+# - add github access token to allow pushing to repo
+# - git push to the gh-pages and exit
+#
+
 # we must stop on error
 set -e
 
@@ -12,6 +32,7 @@ source script/utils.sh
 
 
 # variables
+LOG_TITLE="gh-pages"
 GH_URL="https://github.com/Ma3Route/node-sdk"
 
 
@@ -43,7 +64,7 @@ git checkout gh-pages
 
 
 # ensure there is a version bump
-VERSION="$(node -e "console.log(require('./package.json').version)")"
+VERSION="$(node -e "console.log(require('../package.json').version)")"
 [ -d ${VERSION} ] && {
     log "version bump required" 2
     exit
@@ -54,14 +75,14 @@ log "copying jsdoc output" 0
 mv ../docs/ma3route-sdk/${VERSION} .
 
 
-log "configuring and committing changes" 0
+log "configuring and comitting changes" 0
 git config user.email "mugo@forfuture.co.ke"
 git config user.name "GochoMugo"
 git add -A .
-git commit -a -m "Build ${TRAVIS_BUILD_NUMBER}"
+git commit -a -m "Build for Commit ${TRAVIS_COMMIT}"
 
 
-log "adding authentication key" 0
+log "adding github authentication token" 0
 echo -e "machine github.com\n  login mugo@forfuture.co.ke\n  password ${GH_TOKEN}" >> ~/.netrc
 
 
