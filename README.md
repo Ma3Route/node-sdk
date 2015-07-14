@@ -21,7 +21,7 @@ $ npm install ma3route-sdk
 To generate documentation locally, clone this repo, then run:
 
 ```bash
-$ grunt docs
+$ npm run docs
 ```
 
 
@@ -32,5 +32,5 @@ You can visit the project's [Board](https://trello.com/b/KSbDB4wP/node-sdk) to v
 All pull requests should really be accompained with tests. To run the tests:
 
 ```bash
-$ grunt test
+$ npm test
 ```

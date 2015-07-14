@@ -1,10 +1,10 @@
 {
-    "private": true,
     "name": "ma3route-sdk",
     "version": "0.0.0",
     "description": "Node.js SDK for developing with the Ma3Route REST API",
     "main": "index.js",
     "scripts": {
+        "docs": "grunt docs",
         "test": "grunt test"
     },
     "keywords": [
