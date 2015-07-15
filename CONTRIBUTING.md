@@ -1,0 +1,62 @@
+
+# Contributing to node-sdk
+
+
+## Issues
+
+Before opening a new issue, ensure that it has **not** already been addressed in another issue (whether it's open or closed). This helps ensure discussions are organized into one related issue.
+
+Opening such a duplicate issue, will force us to close it, mark it as **duplicate** and redirect/reference users to the first of this issue reported.
+
+
+## Code Contribution
+
+> We are glad that you can take the time and help us improve this SDK.
+
+We are using Git branching model identical to [this one](http://nvie.com/posts/a-successful-git-branching-model/).
+
+### 1. Fork
+
+Fork the [Github repo](https://github.com/ma3route/node-sdk) and clone your copy locally:
+
+```bash
+$ git clone https://github.com/yourUsername/node-sdk.git
+$ cd node-sdk
+```
+
+### 2. Branch
+
+Which branch you base your commits on, depends on your agenda. If you are implementing new features, use the **develop** branch.
+
+```bash
+$ git checkout develop
+```
+
+If you are simply fixing some bugs, use the **master** branch.
+
+```bash
+$ git checkout master
+```
+
+
+### 3. Commits
+
+To ensure our git history is not bloated, we ask contributors to rebase your commit together into as few commits as possible.
+
+```bash
+$ git rebase --interactive
+```
+
+See [this post](http://nathanleclaire.com/blog/2014/09/14/dont-be-scared-of-git-rebase/) for help in rebasing.
+
+
+### 4. Send PR
+
+Once you are done, just send us the a Pull Request and we shall discuss on getting it merged into upstream repo.
+
+
+## tests
+
+Also, ensure that all the tests are accompained with tests. We might help you with that (but **no** promises). This helps ensure our SDK does **not** break unexpectedly.
+
+> Happy Coding! :dancer:
