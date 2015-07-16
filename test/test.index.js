@@ -16,7 +16,7 @@ var sdk = require("../index");
 
 describe("exported module", function() {
     it("is an object of course", function() {
-        should(sdk).be.an.Object;
+        should(sdk).be.an.Object();
     });
 
     it("has exported modules", function() {

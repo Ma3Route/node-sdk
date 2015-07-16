@@ -27,7 +27,7 @@ describe("utils.request", function() {
 
 describe("utils.setup", function() {
     it("returns settings", function() {
-        should(utils.setup()).be.an.Object;
+        should(utils.setup()).be.an.Object();
     });
 
     it("sets up the SDK settings", function() {
@@ -81,7 +81,7 @@ describe("utils.url", function() {
 
 describe("utils.shuffleArray", function() {
     it("returns an array", function() {
-        should(utils.shuffleArray([1, 2])).be.an.Array;
+        should(utils.shuffleArray([1, 2])).be.an.Array();
     });
 
     it("returns same number of elements in array", function() {
@@ -113,7 +113,7 @@ describe("utils.shuffleArray", function() {
 describe("utils.createTimestamp", function() {
     it("returns a Number", function() {
         var timestamp = utils.createTimestamp();
-        should(timestamp).be.a.Number;
+        should(timestamp).be.a.Number();
     });
 });
 
@@ -127,7 +127,7 @@ describe("utils.sortKeys", function() {
     });
 
     it("returns an array", function() {
-        should(keys).be.an.Array;
+        should(keys).be.an.Array();
     });
 
     it("returns all keys", function() {
@@ -158,7 +158,7 @@ describe("utils.parseResponse", function() {
         eachCode(codes.info, function(code) {
             var res = { statusCode: code };
             res = utils.parseResponse(res);
-            should(res.info).be.ok;
+            should(res.info).be.ok();
             should.equal(res.info, 1);
         });
     });
@@ -167,7 +167,7 @@ describe("utils.parseResponse", function() {
         eachCode(codes.ok, function(code) {
             var res = { statusCode: code };
             res = utils.parseResponse(res);
-            should(res.ok).be.ok;
+            should(res.ok).be.ok();
             should.equal(res.ok, 2);
         });
     });
@@ -176,8 +176,8 @@ describe("utils.parseResponse", function() {
         eachCode(codes.clientError, function(code) {
             var res = { statusCode: code };
             res = utils.parseResponse(res);
-            should(res.clientError).be.ok;
-            should(res.error).be.ok;
+            should(res.clientError).be.ok();
+            should(res.error).be.ok();
             should.equal(res.clientError, 4);
         });
     });
@@ -186,8 +186,8 @@ describe("utils.parseResponse", function() {
         eachCode(codes.serverError, function(code) {
             var res = { statusCode: code };
             res = utils.parseResponse(res);
-            should(res.serverError).be.ok;
-            should(res.error).be.ok;
+            should(res.serverError).be.ok();
+            should(res.error).be.ok();
             should.equal(res.serverError, 5);
         });
     });
@@ -242,7 +242,7 @@ describe("utils.passResponse", function() {
     var response = { statusCode: 200, body: { data: "data", meta: "meta" } };
 
     it("returns a function", function() {
-        should(utils.passResponse(function() {})).be.a.Function;
+        should(utils.passResponse(function() {})).be.a.Function();
     });
 
     it("returns a callback that can be passed to the requests module", function(done) {
@@ -254,7 +254,7 @@ describe("utils.passResponse", function() {
 
     it("returns function that passes to callback some arguments", function(done) {
         var callback = utils.passResponse(function(err, data, meta, res) {
-            should(err).not.be.ok;
+            should(err).not.be.ok();
             should.strictEqual(data, response.body.data);
             should.strictEqual(meta, response.body.meta);
             should.strictEqual(res, response);
@@ -265,7 +265,7 @@ describe("utils.passResponse", function() {
 
     it("passes error if encountered", function(done) {
         var callback = utils.passResponse(function(err) {
-            should(err).be.ok;
+            should(err).be.ok();
             should.strictEqual(err, error);
             return done();
         });
@@ -275,7 +275,7 @@ describe("utils.passResponse", function() {
     it("actually parses the responses", function(done) {
         var callback = utils.passResponse(function(err, body, meta, res) {
             should(err).be.an.instanceOf(errors.HttpStatusError);
-            should(res.notFound).be.ok;
+            should(res.notFound).be.ok();
             return done();
         });
         callback(null, { statusCode: 404 });
@@ -284,7 +284,7 @@ describe("utils.passResponse", function() {
     it("error may be passed through the body instead of status code", function(done) {
         var callback = utils.passResponse(function(err, body, meta, res) {
             should(err).be.an.instanceOf(errors.HttpStatusError);
-            should(res.error).be.ok;
+            should(res.error).be.ok();
             return done();
         });
         callback(null, { body: { success: false } });
@@ -350,7 +350,7 @@ describe("utils.addQueries", function() {
             queries[exclude] = "some damn content";
             utils.addQueries(uri, queries);
             var params = uri.search(true);
-            should(params[exclude]).be.Undefined;
+            should(params[exclude]).be.Undefined();
         });
     });
 
@@ -378,7 +378,7 @@ describe("utils.addQueries", function() {
 describe("utils.allowOptionalParams", function() {
     it("returns an object", function() {
         var args = utils.allowOptionalParams({}, function() {});
-        should(args).be.an.Object;
+        should(args).be.an.Object();
     });
 
     it("args.params is an Object of the parameters", function() {
@@ -444,7 +444,7 @@ describe("utils.getOptions", function() {
     it("returns an object with the options", function() {
         var proxy = "some proxy";
         var ret = utils.getOptions({ proxy: proxy }, ["proxy"]);
-        should(ret).be.an.Object;
+        should(ret).be.an.Object();
         should.deepEqual(ret, { proxy: proxy });
     });
 
@@ -452,15 +452,16 @@ describe("utils.getOptions", function() {
         var source1 = { a: "a" };
         var source2 = { b: "b" };
         var ret = utils.getOptions([source1, source2], ["a", "b"]);
-        should(ret).be.an.Object;
+        should(ret).be.an.Object();
         should.deepEqual(ret, { a: "a", b: "b" });
     });
 
     it("options in following sources in array supercede the preceding", function() {
-        var source1 = { a: "a" };
-        var source2 = { a: "z" };
-        var ret = utils.getOptions([source1, source2], ["a"]);
-        should.equal(ret.a, "z");
+        var source1 = { a: "a", b: "b" };
+        var source2 = { a: "z", b: "y" };
+        var ret = utils.getOptions([source1, source2], ["a", "b"]);
+        should.equal(ret.a, source2.a);
+        should.equal(ret.b, source2.b);
     });
 
     it("allows a destination object", function() {
@@ -477,17 +478,21 @@ describe("utils.getURIOptions", function() {
         var source = { proxy: "some proxy", notneeded: true };
         var ret = utils.getURIOptions(source);
         should.equal(ret.proxy, source.proxy);
-        should(ret.notneeded).be.Undefined;
+        should(ret.notneeded).be.Undefined();
     });
 });
 
 
 describe("utils.getAuthOptions", function() {
     it("returns options applicable to Auth", function() {
-        var source = { secret: "some secret", notneeded: true };
-        var ret = utils.getAuthOptions(source);
-        should.equal(ret.secret, source.secret);
-        should(ret.notneeded).be.Undefined;
+        var source1 = { secret: "some secret", notneeded: true };
+        var source2 = { key: "some key" };
+        var ret1 = utils.getAuthOptions(source1);
+        var ret2 = utils.getAuthOptions([source1, source2]);
+        should.equal(ret1.secret, source1.secret);
+        should.equal(ret2.secret, source1.secret);
+        should.equal(ret2.key, source2.key);
+        should(ret2.notneeded).be.Undefined();
     });
 });
 
@@ -496,15 +501,15 @@ describe("utils.removeURIOptions", function() {
     it("deletes the keys applicable to URI", function() {
         var params = { proxy: "some proxy" };
         utils.removeURIOptions(params);
-        should(params.proxy).be.Undefined;
+        should(params.proxy).be.Undefined();
     });
 
     it("allows arguments splat", function() {
         var arg1 = { proxy: "proxy" };
         var arg2 = { proxy: "proxy" };
         utils.removeURIOptions(arg1, arg2);
-        should(arg1.proxy).be.Undefined;
-        should(arg2.proxy).be.Undefined;
+        should(arg1.proxy).be.Undefined();
+        should(arg2.proxy).be.Undefined();
     });
 
     it("leaves other arguments untouched", function() {

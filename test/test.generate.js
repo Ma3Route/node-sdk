@@ -19,7 +19,7 @@ describe("all generate methods", function() {
 
     it("return functions", function() {
         methods.forEach(function(method) {
-            should(generate[method]()).be.a.Function;
+            should(generate[method]()).be.a.Function();
         });
     });
 });

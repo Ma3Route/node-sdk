@@ -17,7 +17,7 @@ var Client = require("../lib/client");
 
 describe("module:client", function() {
     it("returns a function as the constructor", function() {
-        should(Client).be.a.Function;
+        should(Client).be.a.Function();
     });
 
     it("Client.Client is just a circular reference", function() {
@@ -42,12 +42,12 @@ describe("Client", function() {
             if (_.includes(excludes, moduleName)) {
                 continue;
             }
-            should(client[moduleName]).be.an.Object;
+            should(client[moduleName]).be.an.Object();
             // the module
             var mod = sdk[moduleName];
             for (var funcName in mod) {
                 if (typeof mod[funcName] === "function") {
-                    should(client[moduleName][funcName]).be.a.Function;
+                    should(client[moduleName][funcName]).be.a.Function();
                 }
             }
         }
