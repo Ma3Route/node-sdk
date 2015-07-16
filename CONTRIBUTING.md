@@ -13,7 +13,7 @@ Opening such a duplicate issue, will force us to close it, mark it as **duplicat
 
 > We are glad that you can take the time and help us improve this SDK.
 
-We are using Git branching model identical to [this one](http://nvie.com/posts/a-successful-git-branching-model/).
+We are using Git branching model identical to [this one](http://nvie.com/posts/a-successful-git-branching-model/). Ensure you read that please.
 
 ### 1. Fork
 
@@ -38,10 +38,22 @@ If you are simply fixing some bugs, use the **master** branch.
 $ git checkout master
 ```
 
+Ensure you checkout your own branch with a suitable name. For example, if you are working to fix a reported bug:
+
+```bash
+$ git checkout -b hotfix-issue-22
+```
+
+If it was a new feature *(called awesome thing)*:
+
+```bash
+$ git checkout -b feature-awesome-thing
+```
+
 
 ### 3. Commits
 
-To ensure our git history is not bloated, we ask contributors to rebase your commit together into as few commits as possible.
+To ensure our git history is not bloated, we ask contributors to rebase your commit together into as few commits as possible before sending the pull request.
 
 ```bash
 $ git rebase --interactive
