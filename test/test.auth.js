@@ -126,7 +126,7 @@ describe("auth.generateHash", function() {
         var secret = "secret";
         var uri = utils.url();
         var body = "body";
-        var signature = "b7e7b6a8efb7951669dcc61f478df143fe4e3f2fbcec63a55e293cd7044e5234";
+        var signature = "e19610cc94703274ba200d5743a13ad101298285435b0f1a292c2d7465462aa3";
         auth.addSignature(key, secret, uri, body);
         var params = uri.search(true);
         should.equal(params.signature, signature);
