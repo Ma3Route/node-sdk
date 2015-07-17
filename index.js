@@ -51,7 +51,7 @@ exports = module.exports = {
 /**
  * @global
  * @typedef {Function} itemsGetOneRequest
- * @param {Number} id
+ * @param {Number|Object} identifier
  * @param {Object} [params]
  * @param {responseCallback} callback
  */
