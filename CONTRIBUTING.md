@@ -64,11 +64,11 @@ See [this post](http://nathanleclaire.com/blog/2014/09/14/dont-be-scared-of-git-
 
 ### 4. Send PR
 
-Once you are done, just send us the a Pull Request and we shall discuss on getting it merged into upstream repo.
+Once you are done, just send us a Pull Request and we shall discuss on getting it merged into upstream repo.
 
 
 ## tests
 
-Also, ensure that all the tests are accompained with tests. We might help you with that (but **no** promises). This helps ensure our SDK does **not** break unexpectedly.
+Also, ensure that all the tests are accompanied with tests. We might help you with that (but **no** promises). This helps ensure our SDK does **not** break unexpectedly.
 
 > Happy Coding! :dancer:

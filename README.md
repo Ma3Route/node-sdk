@@ -18,7 +18,7 @@ $ npm install ma3route-sdk
 
 ## documentation:
 
-Documentation can be found at https://ma3route.github.io/node-sdk . All releases have their documentation there.
+Documentation can be found at https://ma3route.github.io/node-sdk. All releases have their documentation there.
 
 To generate documentation locally, clone this repo, then run:
 
@@ -31,7 +31,9 @@ $ npm run docs
 
 You can visit the project's [Board](https://trello.com/b/KSbDB4wP/node-sdk) to view tasks being handled concerning this SDK.
 
-All pull requests should really be accompanied with tests. To run the tests:
+Also, a [guide](https://github.com/Ma3Route/node-sdk/CONTRIBUTING.md) on contributing to the SDK is available.
+
+To run the tests:
 
 ```bash
 $ npm test
