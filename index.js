@@ -24,14 +24,36 @@ exports = module.exports = {
 
 
 /**
- * A callback passed a collection of items such as traffic updates or simply a success/error message
+ * A callback passed a collection of items such as traffic updates
  * @global
- * @callback responseCallback
+ * @callback collectionCallback
  * @param {Error} error - error object
  * @param {Array} items - an array of targetted items
  * @param {Object} meta - meta data concerning the data
  * @param {Object} response - the original response object
  */
+
+
+/**
+ * A callack passed a success indicator
+ * @global
+ * @callback successCallback
+ * @param {Error} error
+ * @param {Object} indicator
+ * @param {Object} meta
+ * @param {Object} response
+ */
+
+
+ /**
+  * A callack passed a single items
+  * @global
+  * @callback itemCallback
+  * @param {Error} error
+  * @param {Object} item
+  * @param {Object} meta
+  * @param {Object} response
+  */
 
 
 /**
@@ -44,7 +66,7 @@ exports = module.exports = {
  * @global
  * @typedef {Function} itemsGetRequest
  * @param {Object} [params]
- * @param {responseCallback} callback
+ * @param {collectionCallback} callback
  */
 
 
@@ -53,7 +75,7 @@ exports = module.exports = {
  * @typedef {Function} itemsGetOneRequest
  * @param {Number|Object} identifier
  * @param {Object} [params]
- * @param {responseCallback} callback
+ * @param {itemCallback} callback
  */
 
 
@@ -61,7 +83,7 @@ exports = module.exports = {
  * @global
  * @typedef {Function} itemsCreateOneRequest
  * @param {Object} body
- * @param {responseCallback} callback
+ * @param {successCallback} callback
  */
 
 
@@ -69,7 +91,7 @@ exports = module.exports = {
  * @global
  * @typedef {Function} itemsModifyOneRequest
  * @param {Object} body
- * @param {responseCallback} callback
+ * @param {successCallback} callback
  */
 
 
