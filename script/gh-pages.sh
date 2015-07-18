@@ -17,11 +17,12 @@
 # - check if documentation with current version does not exist. If true,
 #   contine. Otherwise exit
 # - copy over the documentation
-# - git add and commit the changes, marking it with the hash of the
-#   current commit
+# - git add and commit the changes, marking it with the version of
+#   generated docs
 # - add github access token to allow pushing to repo
 # - git push to the gh-pages and exit
 #
+
 
 # we must stop on error
 set -e
@@ -79,7 +80,7 @@ log "configuring and comitting changes" 0
 git config user.email "mugo@forfuture.co.ke"
 git config user.name "GochoMugo"
 git add -A .
-git commit -a -m "Build for Commit ${TRAVIS_COMMIT}"
+git commit -a -m "v${VERSION} docs"
 
 
 log "adding github authentication token" 0
