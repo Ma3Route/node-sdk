@@ -470,6 +470,13 @@ describe("utils.getOptions", function() {
         utils.getOptions(source, ["red"], dest);
         should(dest.red).eql("green");
     });
+
+    it("ignores null and undefined sources", function() {
+        var sources = [null, undefined];
+        should.doesNotThrow(function() {
+            utils.getOptions(sources, ["a"]);
+        });
+    });
 });
 
 
