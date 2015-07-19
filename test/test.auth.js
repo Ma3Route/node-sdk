@@ -32,12 +32,12 @@ describe("auth.generateHash", function() {
 
     it("adds signature to query", function() {
         var signedUri = auth.addSignature("key", "secret", utils.url());
-        should(signedUri.hasQuery("signature")).be.ok;
+        should(signedUri.hasQuery("signature")).be.ok();
     });
 
     it("adds apikey to query", function() {
         var signedUri = auth.addSignature("key", "secret", utils.url());
-        should(signedUri.hasQuery("apikey")).be.ok;
+        should(signedUri.hasQuery("apikey")).be.ok();
     });
 
     it("generate deterministic hashs", function() {
@@ -69,7 +69,7 @@ describe("auth.generateHash", function() {
         uri.addQuery("signature", fakeSig);
         auth.addSignature("key", "secret", uri);
         var params = uri.search(true);
-        should(params.signature).not.be.an.Array;
+        should(params.signature).not.be.an.Array();
     });
 
     it("removes key if exists", function() {
@@ -78,7 +78,7 @@ describe("auth.generateHash", function() {
         uri.addQuery("apikey", key);
         auth.addSignature("another key", "secret", uri);
         var params = uri.search(true);
-        should(params.apikey).not.be.an.Array;
+        should(params.apikey).not.be.an.Array();
     });
 
     it("uses the request body in hashing", function() {
@@ -126,7 +126,7 @@ describe("auth.generateHash", function() {
         var secret = "secret";
         var uri = utils.url();
         var body = "body";
-        var signature = "b7e7b6a8efb7951669dcc61f478df143fe4e3f2fbcec63a55e293cd7044e5234";
+        var signature = "e19610cc94703274ba200d5743a13ad101298285435b0f1a292c2d7465462aa3";
         auth.addSignature(key, secret, uri, body);
         var params = uri.search(true);
         should.equal(params.signature, signature);
@@ -138,6 +138,6 @@ describe("auth.sign", function() {
     it("adds timestamp", function() {
         var uri = utils.url();
         auth.sign("key", "secret", uri);
-        should(uri.hasQuery("timestamp")).be.ok;
+        should(uri.hasQuery("timestamp")).be.ok();
     });
 });

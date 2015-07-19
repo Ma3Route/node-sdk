@@ -1,7 +1,11 @@
 {
     "name": "ma3route-sdk",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Node.js SDK for developing with the Ma3Route REST API",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/Ma3Route/node-sdk.git"
+    },
     "main": "index.js",
     "scripts": {
         "docs": "grunt docs",
@@ -31,6 +35,7 @@
     },
     "devDependencies": {
         "grunt": "^0.4.5",
+        "grunt-cli": "^0.1.13",
         "grunt-eslint": "^14.0.0",
         "grunt-jsdoc": "0.6.4",
         "grunt-contrib-watch": "^0.6.1",
@@ -39,5 +44,8 @@
         "jsdoc": "^3.3.2",
         "load-grunt-tasks": "^3.2.0",
         "should": "^7.0.1"
+    },
+    "engines": {
+        "node": ">= 0.10.0"
     }
 }
