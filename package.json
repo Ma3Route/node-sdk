@@ -1,6 +1,6 @@
 {
     "name": "ma3route-sdk",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Node.js SDK for developing with the Ma3Route REST API",
     "repository": {
         "type": "git",
@@ -44,5 +44,8 @@
         "jsdoc": "^3.3.2",
         "load-grunt-tasks": "^3.2.0",
         "should": "^7.0.1"
+    },
+    "engines": {
+        "node": ">= 0.10.0"
     }
 }
