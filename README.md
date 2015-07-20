@@ -3,7 +3,8 @@
 
 > Node.js SDK for developing with the Ma3Route REST API v2
 
-[![npm](https://img.shields.io/npm/v/ma3route-sdk.svg)](https://www.npmjs.com/package/ma3route-sdk) [![Build Status](https://travis-ci.org/Ma3Route/node-sdk.svg)](https://travis-ci.org/Ma3Route/node-sdk)
+
+[![node](https://img.shields.io/node/v/ma3route-sdk.svg?style=flat-square)](https://www.npmjs.com/package/ma3route-sdk) [![npm](https://img.shields.io/npm/v/ma3route-sdk.svg)](https://www.npmjs.com/package/ma3route-sdk) [![Build Status](https://travis-ci.org/Ma3Route/node-sdk.svg)](https://travis-ci.org/Ma3Route/node-sdk)
 
 > **The Version 2 of the API will be opened up to the public
 > very soon. Hang on tight!**

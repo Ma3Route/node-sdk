@@ -12,6 +12,7 @@ exports = module.exports = {
     auth: require("./lib/auth"),
     bannerAdverts: require("./lib/bannerAdverts"),
     drivingReports: require("./lib/drivingReports"),
+    externalStream: require("./lib/externalStream"),
     listedAdverts: require("./lib/listedAdverts"),
     misc: require("./lib/misc"),
     news: require("./lib/news"),
