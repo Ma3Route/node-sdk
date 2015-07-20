@@ -21,7 +21,7 @@ describe("exported module", function() {
 
     it("has exported modules", function() {
         var innerModules = [
-            "auth", "bannerAdverts", "drivingReports",
+            "auth", "bannerAdverts", "drivingReports", "externalStream",
             "listedAdverts", "news", "places", "sse", "trafficUpdates",
             "users", "utils", "misc",
         ];
