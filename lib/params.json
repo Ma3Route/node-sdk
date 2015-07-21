@@ -1,0 +1,33 @@
+{
+    "bannerAdverts": {
+        "create": ["title", "town", "context", "mediaurl", "url", "email", "size"],
+        "get": ["id", "limit", "lastread_id", "town_id", "context", "size"]
+    },
+    "contactUs": {
+        "create": ["name", "email", "message", "phone"]
+    },
+    "drivingReports": {
+        "create": ["regno", "drivetype", "latitude", "longitude", "country", "email", "delete", "favorite", "unfavorite"],
+        "get": ["id", "limit", "lastread_id", "country", "regno", "email", "favorite"]
+    },
+    "externalStream": {
+        "get": ["id"]
+    },
+    "listedAdverts": {
+        "create": ["title", "description", "site", "phone", "place", "category", "mediaurl", "days", "social", "ademail", "areadescription"],
+        "get": ["id", "limit", "lastread_id", "town_id", "type", "targettext", "withinpromixity"]
+    },
+    "news": {
+        "create": ["title", "description", "mediaurl", "url", "email"],
+        "get": ["id", "limit", "lastread_id", "searchkey"]
+    },
+    "trafficUpdates": {
+        "create": ["severity", "placefrom_id", "placeto_id", "latitude", "longitude", "town_id", "email", "delete", "favorite", "unfavorite"],
+        "get": ["id", "limit", "countonly", "lastread_id", "email", "favorite", "days", "hours", "minutes", "town_id", "csroadnames"]
+    },
+    "users": {
+        "create": ["firstname", "middlename", "lastname", "gender", "email", "country", "alias"],
+        "modify": ["editprofile", "firstname", "middlename", "lastname", "email", "alias", "resetpassword"],
+        "login": ["email", "password"]
+    }
+}

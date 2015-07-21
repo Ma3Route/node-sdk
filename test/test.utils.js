@@ -234,6 +234,26 @@ describe("utils.parseResponse", function() {
             should.equal(parsedRes(500).internalServerError, 500);
         });
     });
+
+    it("marks response as a client error if body.success === false", function() {
+        var res = {
+            statusCode: 200,
+            body: { success: false },
+        };
+        res = utils.parseResponse(res);
+        should.equal(res.error, 4);
+    });
+
+    it("marks response as server error if body is null/''/undefined", function() {
+        var res = [
+            utils.parseResponse({ statusCode: 200, body: null }),
+            utils.parseResponse({ statusCode: 200, body: "" }),
+            utils.parseResponse({ statusCode: 200, body: undefined }),
+        ];
+        res.forEach(function(aRes) {
+            should.equal(aRes.error, 5, "fails for '" + aRes.body + "'");
+        });
+    });
 });
 
 
@@ -282,18 +302,33 @@ describe("utils.passResponse", function() {
     });
 
     it("error may be passed through the body instead of status code", function(done) {
-        var callback = utils.passResponse(function(err, body, meta, res) {
+        var callback = utils.passResponse(function(err, data, meta, res) {
             should(err).be.an.instanceOf(errors.HttpStatusError);
             should(res.error).be.ok();
             return done();
         });
         callback(null, { body: { success: false } });
     });
+
+    it("uses a predefined string if falsy body is received", function(done) {
+        var callback = utils.passResponse(function(err, data, meta, res) {
+            if (data === "done") {
+                return done();
+            }
+            should(err).be.an.instanceOf(errors.HttpStatusError);
+            should(err.message).be.a.String().and.containEql("empty");
+            should(res.error).be.ok();
+        });
+        callback(null, { body: null });
+        callback(null, { body: undefined });
+        callback(null, { body: "" });
+        callback(null, { }, { data: "done" });
+    });
 });
 
 
 describe("utils.addQueries", function() {
-    var excludes = ["secret"];
+    var excludes = ["secret", "key", "proxy"];
 
     it("returns an instance of URIjs", function() {
         var url = utils.url();
@@ -343,7 +378,7 @@ describe("utils.addQueries", function() {
         should.equal(params.added, "false");
     });
 
-    it("automatically excludes some parameters", function() {
+    it("automatically excludes keys: " + excludes, function() {
         var uri = utils.url();
         excludes.forEach(function(exclude) {
             var queries = { };
@@ -504,6 +539,22 @@ describe("utils.getAuthOptions", function() {
 });
 
 
+describe("utils.removeOptions", function() {
+    it("deletes keys", function() {
+        var obj = { a: "b", c: "d" };
+        utils.removeOptions([obj], ["a"]);
+        should(obj.a).be.Undefined();
+    });
+
+    it("allows a single key", function() {
+        var obj = { i: "i" };
+        should.doesNotThrow(function() {
+            utils.removeOptions([obj], "i");
+        });
+    });
+});
+
+
 describe("utils.removeURIOptions", function() {
     it("deletes the keys applicable to URI", function() {
         var params = { proxy: "some proxy" };
@@ -523,5 +574,51 @@ describe("utils.removeURIOptions", function() {
         var params = { proxy: "proxy", limit: 70 };
         utils.removeURIOptions(params);
         should.equal(params.limit, 70);
+    });
+});
+
+
+describe("utils.removeAuthOptions", function() {
+    it("deletes the keys applicable to URI", function() {
+        var params = { key: "some proxy", secret: "some secret" };
+        utils.removeAuthOptions(params);
+        should(params.key).be.Undefined();
+        should(params.secret).be.Undefined();
+    });
+
+    it("allows arguments splat", function() {
+        var arg1 = { key: "key" };
+        var arg2 = { secret: "secret" };
+        utils.removeAuthOptions(arg1, arg2);
+        should(arg1.key).be.Undefined();
+        should(arg2.secret).be.Undefined();
+    });
+
+    it("leaves other arguments untouched", function() {
+        var params = { secret: "secret", limit: 70 };
+        utils.removeAuthOptions(params);
+        should.equal(params.limit, 70);
+    });
+});
+
+
+describe("utils.pickParams", function() {
+    beforeEach(function() {
+        utils.setup(require("../config"));
+    });
+
+    it("picks out parameters", function() {
+        var params = { i: "i", j: "j", k: "k" };
+        var picked = utils.pickParams(params, ["i", "k"]);
+        should.equal(picked.i, params.i);
+        should(picked.j).be.Undefined();
+        should.equal(picked.k, params.k);
+    });
+
+    it("does not filter if settings forbid it", function() {
+        utils.setup({ enforce_params_filter: false }); // eslint-disable-line
+        var params = { i: "i", j: "j" };
+        var picked = utils.pickParams(params, ["i"]);
+        should.equal(picked.j, params.j);
     });
 });
