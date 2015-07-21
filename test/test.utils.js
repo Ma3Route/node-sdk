@@ -600,3 +600,25 @@ describe("utils.removeAuthOptions", function() {
         should.equal(params.limit, 70);
     });
 });
+
+
+describe("utils.pickParams", function() {
+    beforeEach(function() {
+        utils.setup(require("../config"));
+    });
+
+    it("picks out parameters", function() {
+        var params = { i: "i", j: "j", k: "k" };
+        var picked = utils.pickParams(params, ["i", "k"]);
+        should.equal(picked.i, params.i);
+        should(picked.j).be.Undefined();
+        should.equal(picked.k, params.k);
+    });
+
+    it("does not filter if settings forbid it", function() {
+        utils.setup({ enforce_params_filter: false }); // eslint-disable-line
+        var params = { i: "i", j: "j" };
+        var picked = utils.pickParams(params, ["i"]);
+        should.equal(picked.j, params.j);
+    });
+});
