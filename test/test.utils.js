@@ -7,20 +7,22 @@
 
 
 // npm-installed modules
+var _ = require("lodash");
 var errors = require("common-errors");
+var request = require("request");
 var should = require("should");
 var URI = require("URIjs");
 
 
 // own modules
+var config = _.cloneDeep(require("../config"));
 var utils = require("../lib/utils");
 
 
 describe("utils.request", function() {
-    it("is a configured requests module", function() {
-        var req = utils.request;
-        var request = require("request").defaults();
-        request.should.containEql(req);
+    it("is a function that configures request with defaults", function() {
+        var req = utils.request();
+        should.deepEqual(req, request.defaults(config));
     });
 });
 
@@ -28,12 +30,19 @@ describe("utils.request", function() {
 describe("utils.setup", function() {
     it("returns settings", function() {
         should(utils.setup()).be.an.Object();
+        should.deepEqual(utils.setup(), config);
     });
 
     it("sets up the SDK settings", function() {
         var settings = { url: "this is utils.setup thing" };
         utils.setup(settings);
         should(utils.setup().url).eql(settings.url);
+    });
+
+    it("merges all settings", function() {
+        var newSettings = { request: { strictSSL: false } };
+        utils.setup(newSettings);
+        should(utils.setup().request.json).not.be.Undefined();
     });
 });
 
@@ -69,12 +78,8 @@ describe("utils.url", function() {
         var url2 = utils.url("trafficUpdates", { proxy: proxy });
         should(url2.toString()).containEql(proxy);
         proxy = "https://mustbeproxy.io";
-        var url3 = utils.url({ proxy: proxy});
+        var url3 = utils.url({ proxy: proxy });
         should(url3.toString()).containEql(proxy);
-        var url4 = utils.url();
-        should(url4.toString()).containEql(utils.getProxy());
-        var url5 = utils.url(null);
-        should(url5.toString()).containEql(utils.getProxy());
     });
 });
 
