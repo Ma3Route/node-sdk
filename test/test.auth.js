@@ -17,7 +17,7 @@ var auth = require("../lib/auth");
 var utils = require("../lib/utils");
 
 
-describe("auth.generateHash", function() {
+describe("auth.addSignature", function() {
     it("returns a URIjs instance", function() {
         var uri = utils.url();
         var signedUri = auth.addSignature("key", "secret", uri);
@@ -126,10 +126,21 @@ describe("auth.generateHash", function() {
         var secret = "secret";
         var uri = utils.url();
         var body = "body";
-        var signature = "e19610cc94703274ba200d5743a13ad101298285435b0f1a292c2d7465462aa3";
+        var signature = "3058dc0ea8b186c87518f4ee747c5297d48c03688588f0929d390acba6415307";
         auth.addSignature(key, secret, uri, body);
         var params = uri.search(true);
         should.equal(params.signature, signature);
+    });
+
+    it("allows proxies to be used", function() {
+        var proxy = "http://proxy.me";
+        var uri = utils.url("trafficUpdates");
+        var proxiedUri = utils.url("trafficUpdates", { proxy: proxy });
+        var key = "key";
+        var secret = "secret";
+        var signature1 = auth.addSignature(key, secret, uri).search(true).signature;
+        var signature2 = auth.addSignature(key, secret, proxiedUri).search(true).signature;
+        should.equal(signature2, signature1);
     });
 });
 
