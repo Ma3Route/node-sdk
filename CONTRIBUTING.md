@@ -1,15 +1,15 @@
 
-# Contributing to node-sdk
+# Contributing to ma3route's node-sdk
 
 
-## Issues
+## Issues:
 
 Before opening a new issue, ensure that it has **not** already been addressed in another issue (whether it's open or closed). This helps ensure discussions are organized into one related issue.
 
 Opening such a duplicate issue, will force us to close it, mark it as **duplicate** and redirect/reference users to the first of this issue reported.
 
 
-## Code Contribution
+## Code Contribution:
 
 > We are glad that you can take the time and help us improve this SDK.
 
@@ -67,8 +67,18 @@ See [this post](http://nathanleclaire.com/blog/2014/09/14/dont-be-scared-of-git-
 Once you are done, just send us a Pull Request and we shall discuss on getting it merged into upstream repo.
 
 
-## tests
+## tests:
 
 Also, ensure that all the tests are accompanied with tests. We might help you with that (but **no** promises). This helps ensure our SDK does **not** break unexpectedly.
 
+
+## licensing:
+
+All code in this repository is licensed under the **[MIT license][license]**.
+
+By contributing to this project, you agree to submit your code and other contributions under the **[MIT license][license]**. See the license [here][license].
+
+
 > Happy Coding! :dancer:
+
+[license]: https://github.com/Ma3Route/node-sdk/blob/master/LICENSE "view license"
