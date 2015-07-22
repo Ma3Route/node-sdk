@@ -1,4 +1,8 @@
 {
-    "url": "https://www.ma3route.com/findit-api/v2/json/",
-    "enforce_params_filter": true
+    "baseurl": "https://www.ma3route.com/findit-api/v2/json/",
+    "enforce_params_filter": true,
+    "request": {
+        "strictSSL": true,
+        "json": true
+    }
 }
