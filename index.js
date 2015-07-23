@@ -82,15 +82,7 @@ exports = module.exports = {
 
 /**
  * @global
- * @typedef {Function} itemsCreateOneRequest
- * @param {Object} body
- * @param {successCallback} callback
- */
-
-
-/**
- * @global
- * @typedef {Function} itemsModifyOneRequest
+ * @typedef {Function} itemsPostOneRequest
  * @param {Object} body
  * @param {successCallback} callback
  */
