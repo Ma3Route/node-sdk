@@ -15,7 +15,7 @@ var generate = require("../lib/generate");
 
 
 describe("all generate methods", function() {
-    var methods = ["newGet", "newGetOne", "newCreateOne", "newModifyOne", "newSSEClientFactory"];
+    var methods = ["newGet", "newGetOne", "newPostOne", "newCustomPostOne", "newSSEClientFactory"];
 
     it("return functions", function() {
         methods.forEach(function(method) {

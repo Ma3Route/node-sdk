@@ -367,14 +367,6 @@ describe("utils.addQueries", function() {
         should.strictEqual(modifiedUrl, url);
     });
 
-    it("decamelizes any params", function() {
-        var params = { camelCase: "camel_case" };
-        var expected = "?camel_case=camel_case";
-        var stringUrl = utils.addQueries(utils.url(), params).toString();
-        var actual = stringUrl.substring(stringUrl.indexOf("?"));
-        should.equal(actual, expected);
-    });
-
     it("replaces already added params", function() {
         var uri = utils.url();
         utils.addQueries(uri, { added: true });
@@ -403,14 +395,6 @@ describe("utils.addQueries", function() {
             var params = uri.search(true);
             should.equal(params[exclude], queries[exclude]);
         });
-    });
-
-    it("automatically converts decamelizes queries", function() {
-        var uri = utils.url();
-        var queries = { deCamelize: "please" };
-        utils.addQueries(uri, queries);
-        var params = uri.search(true);
-        should.equal(params.de_camelize, queries.deCamelize);
     });
 });
 
@@ -625,5 +609,17 @@ describe("utils.pickParams", function() {
         var params = { i: "i", j: "j" };
         var picked = utils.pickParams(params, ["i"]);
         should.equal(picked.j, params.j);
+    });
+
+    it("automatically converts decamelizes queries", function() {
+        var params = { deCamelize: "please" };
+        var picked = utils.pickParams(params, ["de_camelize"]);
+        should.equal(picked.de_camelize, params.deCamelize);
+    });
+
+    it("does not manipulate the unpicked params", function() {
+        var original = { i: "i" };
+        var picked = utils.pickParams(original, ["i"]);
+        should.notStrictEqual(picked, original);
     });
 });
