@@ -197,45 +197,67 @@ describe("utils.parseResponse", function() {
         });
     });
 
+    it("always add an ErrorClass for constructing errors", function() {
+        [
+            codes.clientError,
+            codes.serverError,
+        ].forEach(function(codesCategory) {
+            eachCode(codesCategory, function(code) {
+                var res = { statusCode: code };
+                res = utils.parseResponse(res);
+                should(res.ErrorClass).be.a.Function();
+            });
+        });
+        // using body
+        var res = utils.parseResponse({ body: { success: false } });
+        should(res.ErrorClass).be.a.Function();
+    });
+
     describe("sugar", function() {
         function parsedRes(code) {
             var res = { statusCode: code };
             return utils.parseResponse(res);
         }
 
-        it("adds prop created for 201", function() {
+        it("201: adds prop .created", function() {
             should.equal(parsedRes(201).created, 201);
         });
 
-        it("adds prop accepted for 202", function() {
+        it("202: adds prop .accepted", function() {
             should.equal(parsedRes(202).accepted, 202);
         });
 
-        it("adds prop noContent for 204", function() {
+        it("204: adds prop .noContent", function() {
             should.equal(parsedRes(204).noContent, 204);
         });
 
-        it("adds prop badRequest for 400", function() {
+        it("400: adds prop .badRequest", function() {
             should.equal(parsedRes(400).badRequest, 400);
         });
 
-        it("adds prop unauthorized for 401", function() {
-            should.equal(parsedRes(401).unauthorized, 401);
+        it("401: adds prop .unauthorized and AuthenticationRequiredError", function() {
+            var res = parsedRes(401);
+            should.equal(res.unauthorized, 401);
+            should.strictEqual(res.ErrorClass, errors.AuthenticationRequiredError);
         });
 
-        it("adds prop forbidden for 403", function() {
-            should.equal(parsedRes(403).forbidden, 403);
+        it("403: adds prop .forbidden and NotPermittedError", function() {
+            var res = parsedRes(403);
+            should.equal(res.forbidden, 403);
+            should.strictEqual(res.ErrorClass, errors.NotPermittedError);
         });
 
-        it("adds prop notFound for 404", function() {
-            should.equal(parsedRes(404).notFound, 404);
+        it("404: adds prop .notFound and NotFoundError", function() {
+            var res = parsedRes(404);
+            should.equal(res.notFound, 404);
+            should.strictEqual(res.ErrorClass, errors.NotFoundError);
         });
 
-        it("adds prop notAcceptable for 406", function() {
+        it("406: adds prop .notAcceptable", function() {
             should.equal(parsedRes(406).notAcceptable, 406);
         });
 
-        it("adds prop internalServerError for 500", function() {
+        it("500: adds prop .internalServerError", function() {
             should.equal(parsedRes(500).internalServerError, 500);
         });
     });
@@ -288,10 +310,10 @@ describe("utils.passResponse", function() {
         callback(null, response, response.body);
     });
 
-    it("passes error if encountered", function(done) {
+    it("passes IOError if error encountered in sending request", function(done) {
         var callback = utils.passResponse(function(err) {
             should(err).be.ok();
-            should.strictEqual(err, error);
+            should(err).be.an.instanceOf(errors.io.IOError);
             return done();
         });
         callback(error);
@@ -299,7 +321,7 @@ describe("utils.passResponse", function() {
 
     it("actually parses the responses", function(done) {
         var callback = utils.passResponse(function(err, body, meta, res) {
-            should(err).be.an.instanceOf(errors.HttpStatusError);
+            should(err).be.an.instanceOf(errors.NotFoundError);
             should(res.notFound).be.ok();
             return done();
         });
@@ -310,6 +332,7 @@ describe("utils.passResponse", function() {
         var callback = utils.passResponse(function(err, data, meta, res) {
             should(err).be.an.instanceOf(errors.HttpStatusError);
             should(res.error).be.ok();
+            should(res.ErrorClass).be.a.Function();
             return done();
         });
         callback(null, { body: { success: false } });
@@ -323,6 +346,7 @@ describe("utils.passResponse", function() {
             should(err).be.an.instanceOf(errors.HttpStatusError);
             should(err.message).be.a.String().and.containEql("empty");
             should(res.error).be.ok();
+            should(res.ErrorClass).be.a.Function();
         });
         callback(null, { body: null });
         callback(null, { body: undefined });
