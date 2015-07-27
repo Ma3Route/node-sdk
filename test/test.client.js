@@ -36,7 +36,7 @@ describe("Client", function() {
     it("returns the all the module functions as instance method", function() {
         var client = new Client();
         var sdk = require("../index");
-        var excludes = ["Client", "auth", "utils"];
+        var excludes = ["Client", "auth", "utils", "errors"];
         for (var moduleName in sdk) {
             // ignore some inner modules
             if (_.includes(excludes, moduleName)) {

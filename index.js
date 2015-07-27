@@ -21,6 +21,7 @@ exports = module.exports = {
     trafficUpdates: require("./lib/trafficUpdates"),
     users: require("./lib/users"),
     utils: require("./lib/utils"),
+    errors: require("common-errors"),
 };
 
 
