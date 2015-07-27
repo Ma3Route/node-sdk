@@ -209,8 +209,10 @@ describe("utils.parseResponse", function() {
             });
         });
         // using body
-        var res = utils.parseResponse({ body: { success: false } });
-        should(res.ErrorClass).be.a.Function();
+        var sampleRes = utils.parseResponse({ body: { success: false } });
+        should(sampleRes.ErrorClass).be.a.Function();
+        sampleRes = utils.parseResponse({ body: null });
+        should(sampleRes.ErrorClass).be.a.Function();
     });
 
     describe("sugar", function() {
