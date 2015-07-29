@@ -59,14 +59,14 @@ html
                             | If you encounter a bug, you can simply report in our <a href="https://github.com/ma3route/node-sdk/issues/">issue tracker</a> and we look into it. Also feature requests are welcome.</li>
             
                 div.col-xs-12.section-versions
-                    a.btn.btn-primary.btn-lg(href="/" + latestVersion + "/") Get Started 
+                    a.btn.btn-primary.btn-lg(href=latestVersion + "/") Get Started 
                         small= (" v" + latestVersion)
                     div.old-versions
                         h4 all versions
                         ul.list-versions
                             each version in versions.slice().reverse()
                                 li
-                                    a(href="/" + version + "/")= "v" + version
+                                    a(href=version + "/")= "v" + version
         
             div.page-footer.col-xs-12
                 p Copyright &copy; 2015 Ma3Route
