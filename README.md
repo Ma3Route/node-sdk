@@ -13,6 +13,8 @@ You can also view this website locally. Simply:
 $ git clone https://github.com/ma3route/node-sdk.git
 $ cd node-sdk
 $ git checkout gh-pages
+$ npm install
+$ npm run compile  # works on *nix systems
 ```
 
 You can use any proper web server to serve these static files. I suggest [indexzero](https://github.com/indexzero)'s [simple http server](https://github.com/indexzero/http-server). Simply:
