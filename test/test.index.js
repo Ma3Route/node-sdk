@@ -33,7 +33,7 @@ describe("exported module", function() {
 
     it("has exported classes", function() {
         var classes = [
-            "Client",
+            "Client", "Poller",
         ];
         classes.forEach(function(klass) {
             should(sdk[klass]).be.an.instanceOf(Function);

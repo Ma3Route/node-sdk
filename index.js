@@ -9,6 +9,7 @@
 // Exporting the modules for each  API object
 exports = module.exports = {
     Client: require("./lib/client"),
+    Poller: require("./lib/poller"),
     auth: require("./lib/auth"),
     bannerAdverts: require("./lib/bannerAdverts"),
     drivingReports: require("./lib/drivingReports"),
