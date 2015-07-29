@@ -19,7 +19,7 @@
 
 /* page heade */
 .page-header {
-    background-image: url("/src/images/giftly.png");
+    background-image: url("../images/giftly.png");
     margin-top: 0;
     padding: 100px;
     text-align: center;
