@@ -1,0 +1,90 @@
+/* fonts */
+@font-face {
+    font-family: "Asul";
+    src: url("fonts/Asul-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Raleway";
+    src: url("fonts/raleway_regular-webfont.ttf");
+}
+
+
+/* All content */
+* {
+    font-family: "Raleway", sans-serif;
+}
+
+
+/* page heade */
+.page-header {
+    background-image: url("/src/images/giftly.png");
+    margin-top: 0;
+    padding: 100px;
+    text-align: center;
+}
+
+
+/* buttons in header */
+.page-header .btn {
+    background: transparent;
+    margin: 40px 10px 0 0;
+}
+
+
+/* page title */
+.page-title {
+}
+
+
+/* main header */
+.page-title h1 {
+    font-family: "Asul", sans;
+    font-size: 46px;
+}
+
+
+/* page foooter */
+.page-footer {
+    padding: 50px;
+    text-align: center;
+}
+
+
+/* list of features */
+.list-features li {
+    margin-bottom: 10px;
+}
+
+
+/* section on versions */
+.section-versions {
+    padding-top: 20px;
+    text-align: center;
+}
+
+
+/* old versions */
+.old-versions {
+    margin-top: 60px;
+}
+
+
+/* title */
+.old-versions h4 {
+    margin-bottom: 20px;
+}
+
+
+
+/* list of versions */
+.list-versions {
+    list-style: none;
+}
+
+.list-versions li {
+    display: inline;
+    margin: 2px 10px;
+    padding: 10px;
+}

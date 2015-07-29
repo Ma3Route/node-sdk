@@ -1,0 +1,12 @@
+{
+    "name": "ma3route-sdk-docs",
+    "version": "0.0.0",
+    "dependencies": {
+        "GochoMugo/msu": "*",
+        "jade": "^1.11.0",
+        "semver": "^5.0.1"
+    },
+    "scripts": {
+        "compile": "msu x script/compile.sh"
+    }
+}

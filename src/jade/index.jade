@@ -1,0 +1,73 @@
+doctype html
+html
+    head
+        title Ma3Route | Node-sdk
+        link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/src/css/prism.css")
+        link(rel="stylesheet", href="/src/css/index.css")
+
+    body
+
+        div.body
+            div.page-header
+                div.page-title
+                    h1 ma3route
+                        br
+                        small node-sdk
+                div
+                    a.btn.btn-default.btn-lg(href="https://github.com/ma3route/node-sdk") Github
+                    a.btn.btn-default.btn-lg(href="https://github.com/ma3route/node-sdk/issues") Issues
+                    a.btn.btn-default.btn-lg(href="https://github.com/Ma3Route/node-sdk/graphs/contributors") Contributors
+
+            div.page-body.col-md-10.col-md-offset-1
+                div.col-md-6
+                    pre
+                        code.language-javascript.
+                            var sdk = require("ma3route-sdk");
+                            
+                            sdk.setup({
+                                key: "myapikey",
+                                secret: "SoM3sEcR3tf0rM3o1y",
+                            });
+                            
+                            sdk.trafficUpdates.get(function(err, updates) {
+                                if (err) {
+                                    console.log("something went wrong");
+                                    return;
+                                }
+                                console.log("got some updates");
+                                return;
+                            });
+
+                div.col-md-6
+                    blockquote
+                        p
+                            strong A development kit for programmers developing Node.js applications interacting with the Ma3Route REST API.</blockquote>
+                        p Fasten your application development using our official Node.js SDK.
+                    ul.list-features
+                        li
+                            strong Reliable.
+                            | Ma3Route's web application uses this SDK. <em>We eat our own dog food. Woof! Woof!</em></li>
+                        li
+                            strong Up-to-date.
+                            | The SDK is updated along with the Ma3Route API. As soon as a change is done in the API we update the SDK to support the changes.</li>
+                        li
+                            strong Well-tested.
+                            | We continuously test the SDK internals.</li>
+                        li
+                            strong Support.
+                            | If you encounter a bug, you can simply report in our <a href="https://github.com/ma3route/node-sdk/issues/">issue tracker</a> and we look into it. Also feature requests are welcome.</li>
+            
+                div.col-xs-12.section-versions
+                    a.btn.btn-primary.btn-lg(href="/" + latestVersion + "/") Get Started 
+                        small= (" v" + latestVersion)
+                    div.old-versions
+                        h4 all versions
+                        ul.list-versions
+                            each version in versions.slice().reverse()
+                                li
+                                    a(href="/" + version + "/")= "v" + version
+        
+            div.page-footer.col-xs-12
+                p Copyright &copy; 2015 Ma3Route
+        script(src="/src/js/prism.js")

@@ -1,3 +1,4 @@
 # trash from other branches
 docs/
 node_modules/
+npm-debug.log
