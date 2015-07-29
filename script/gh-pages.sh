@@ -76,6 +76,14 @@ log "copying jsdoc output" 0
 mv ../docs/ma3route-sdk/${VERSION} .
 
 
+log "installing dependencies for compiling" 0
+npm install
+
+
+log "compiling the landing page" 0
+npm run compile
+
+
 log "configuring and comitting changes" 0
 git config user.email "mugo@forfuture.co.ke"
 git config user.name "GochoMugo"
