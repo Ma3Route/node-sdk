@@ -554,6 +554,17 @@ describe("utils.getAuthOptions", function() {
 });
 
 
+describe("utils.getPollerOptions", function() {
+    it("returns options applicable to Poller class", function() {
+        var source1 = { interval: 1000, proxy: "p", secret: "s" };
+        var ret1 = utils.getPollerOptions(source1);
+        should.equal(ret1.interval, source1.interval);
+        should(ret1.proxy).be.Undefined();
+        should(ret1.secret).be.Undefined();
+    });
+});
+
+
 describe("utils.removeOptions", function() {
     it("deletes keys", function() {
         var obj = { a: "b", c: "d" };
