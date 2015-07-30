@@ -52,11 +52,25 @@ describe("Poller", function() {
         }, { interval: 100 });
     });
 
-    it("options are passed to the callback", function(done) {
-        var options;
-        var poller = new Poller(function(passedOptions) {
+    it("options.params are passed to the callback", function(done) {
+        var options = { params: { } };
+        var poller = new Poller(function(params) {
             poller.stop();
-            should.strictEqual(passedOptions, options);
+            should.strictEqual(params, options.params);
+            return done();
+        }, options);
+    });
+
+    it("calls options.params if it is a function", function(done) {
+        var tracker = { };
+        var options = {
+            params: function() {
+                return tracker;
+            },
+        };
+        var poller = new Poller(function(params) {
+            poller.stop();
+            should.strictEqual(params, tracker);
             return done();
         }, options);
     });
