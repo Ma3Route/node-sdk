@@ -24,6 +24,8 @@ var setup = utils.setup();
 var noop = function() { };
 
 
+describe("PollerTestWrapper", function() {
+
 before(function() {
     utils.setup({
         poller: {
@@ -233,4 +235,6 @@ describe("Poller#stop", function() {
         poller.on("message", noop);
         poller.start();
     });
+});
+
 });
