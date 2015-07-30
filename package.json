@@ -2,7 +2,7 @@
     "name": "ma3route-sdk-docs",
     "version": "0.0.0",
     "dependencies": {
-        "GochoMugo/msu": "*",
+        "msu": "GochoMugo/msu",
         "jade": "^1.11.0",
         "semver": "^5.0.1"
     },
