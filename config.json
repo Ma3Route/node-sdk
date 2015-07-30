@@ -4,5 +4,8 @@
     "request": {
         "strictSSL": true,
         "json": true
+    },
+    "poller": {
+        "interval": 5000
     }
 }

@@ -7,6 +7,7 @@
 
 
 // npm-installed modules
+var errors = require("common-errors");
 var should = require("should");
 
 
@@ -32,10 +33,14 @@ describe("exported module", function() {
 
     it("has exported classes", function() {
         var classes = [
-            "Client",
+            "Client", "Poller",
         ];
         classes.forEach(function(klass) {
             should(sdk[klass]).be.an.instanceOf(Function);
         });
+    });
+
+    it("exports errors module", function() {
+        should.strictEqual(sdk.errors, errors);
     });
 });

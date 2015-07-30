@@ -4,6 +4,7 @@ node_js:
 - '0.11'
 - '0.10'
 script: npm test
+after_script: npm run test-coverage && cat ./coverage/lcov.info | coveralls
 after_success: script/gh-pages.sh
 env:
   global:
@@ -12,7 +13,7 @@ deploy:
   provider: npm
   email: mugo@forfuture.co.ke
   api_key:
-    secure: Bc+pXo62x+86XoMbgXdiSONmSrLc7Sv4JrHQcW3XtcvTWReudNP89CeEMe5/pPGO7NwMBG1EU+fE96IAwa1jtR78QWeaRwfp8cvxFS1dNAvKzAuDuBak4//9VxP1+ZznOvZ2fVmLeC+WCzFAhjLxB3ZtS3+eFXfvNIOZ/FMvQqYvMPvLK5wZ1ICWvz+0XlJmdoGoPcXFTZ0pwGBuqSVp4LaKguQk/JcJDYw5n7XFvGcTA+vGWgpl60suqlvx59n3IX5k15/I6208TDVx6zrHqepmk4xHdAjpnb1D9YFBnQxloUceuTOv1knd/bWbtBrC1zJEq1mpbGNII4iutbC11y1gkwHruPoERsMCApRiEgCl4Oq41qgwUmUd6QJOjwHHVvWbTeBOmOf7oNZXNRpfsr3K7wMboK2KqYi21Si0pKtWQV1ByqDHb1XUYvUe3Z8XLHU8dKF8833oxiOxZFQBOixQqQmPUueWg/NV8n7P3EcV4Pm22Xu/3xSmEtB/Yad55MauyvelrUOC0UAs/MuOUXTVrtxtzqq+eDqA+RXmgYv1BoqRXeTraCJKxSlGt/qY3tVphKuugqZSe9GM2PW4/+wM0EUhXI3yewQr+GEaasZJ/N/plVadQ15rbNm5ZTBKG+KNusE17AwCY0+8kqprSeUSWMd9SykoPWdvxE0rnyE=
+    secure: lj5jU8+jL8biaoox2YvKNBs5pAUh4IMSvRkxb4+L4D9qLGz+NPsRtmiYwHj7Lym5P7EPCO+zyS5+N+6AeGIaRBT1EWTfS2uGybilaBmzu9E5GMyDBQs3W9Ls2rqDRnBox0Tnu/Btq5sqEpRJpY3rUguTEVLTVA+UFjrRIzjOKG38UzcjrzI9z2RVWSJPJfcx6uGajWmVRjuO/UcUnBcuviYz3EiDs+iH7oKvfvJnvAOXnBendoTAFLwgXa5gtmym8zMJWfkLz+YFDwKAou2tFXDOJmzygt5gcXziZfYyM1bqNTrHrpkgH6VPNTC/4rnr9L+Og0be0GTg7KehBeJpswyZD/k/Da713yuFMD8RsMS7LdhV8PvCdSKYPw1djUNxHXRLMQxGwVOxEbOSvsSG0oI+/2ap8o29gwl4HbBi2XV932IC7oEz6+U54ApKy/MWvj4CjkZVK+1N/NEviM+SafHhuX0T8ApnMcLfXNjhI6/PjU47q8ob88DDy6iQlEz8AmvlZqzPyXrAsZ0wOEPeN9ymjNK+JJ2f9delYekD7VTYIhZ9PP1KKdLy9ltFR+0lVZD+QB4aCTiQlCvrgmO/SNmML9nE4mjeeTrgKPcSiqhF3+w4vRpsw31+hPdXPWPSFE18WCPBxICvG2fdADUgZMXcdDrEwe3aT9wwt4o5SOQ=
   on:
     tags: true
     repo: Ma3Route/node-sdk
