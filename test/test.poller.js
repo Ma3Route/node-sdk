@@ -16,10 +16,26 @@ var should = require("should");
 
 // own modules
 var Poller = require("../lib/poller");
+var utils = require("../lib/utils");
 
 
 // module variables
+var setup = utils.setup();
 var noop = function() { };
+
+
+before(function() {
+    utils.setup({
+        poller: {
+            interval: 10,
+        },
+    });
+});
+
+
+after(function() {
+    utils.setup(setup);
+});
 
 
 describe("module:poller", function() {
@@ -42,6 +58,26 @@ describe("Poller", function() {
         should.doesNotThrow(function() {
             return new Poller(noop);
         });
+    });
+
+    it("has own interval automatically", function(done) {
+        this.timeout(setup.poller.interval * 3);
+        var times = [];
+        var testSetup = utils.setup();
+        utils.setup(setup);
+        var poller = new Poller(function(params, callback) {
+            return callback(null, [ Date.now() ]);
+        });
+        poller.on("message", function(r) {
+            times.push(r[0]);
+            if (times.length === 2) {
+                poller.stop();
+                utils.setup(testSetup);
+                should(times[1]).be.approximately(times[0], 6000);
+                return done();
+            }
+        });
+        poller.start();
     });
 
     it("options.interval sets interval for timer", function(done) {
