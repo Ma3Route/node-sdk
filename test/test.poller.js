@@ -7,6 +7,7 @@
 
 
 // built-in modules
+var domain = require("domain");
 var events = require("events");
 
 
@@ -193,22 +194,19 @@ describe("Poller#on", function() {
         /**
          * See http://www.adaltas.com/blog/2013/03/27/test-uncaughtException-error-mocha/
          */
-        var poller;
-        var listeners = process.listeners();
-        process.removeAllListeners("uncaughtException");
-        var handler = function handler() {
-            poller.stop();
-            process.removeAllListeners("uncaughtException");
-            listeners.forEach(function(listener) {
-                process.on("uncaughtException", listener);
-            });
-            return done();
-        };
-        process.on("uncaughtException", handler);
-        poller = new Poller(function(params, callback) {
+        var poller = new Poller(function(params, callback) {
             return callback(new Error());
         });
-        poller.start();
+        var d = domain.create();
+        d.on("error", function(err) {
+            poller.stop();
+            should(err).be.ok();
+            d.dispose();
+            return done();
+        });
+        d.run(function() {
+            poller.start();
+        });
     });
 });
 
