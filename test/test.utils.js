@@ -43,6 +43,15 @@ describe("utils.setup", function() {
         var newSettings = { request: { strictSSL: false } };
         utils.setup(newSettings);
         should(utils.setup().request.json).not.be.Undefined();
+        should(utils.setup().request.strictSSL).eql(false);
+    });
+
+    it("does not pass the same/actual reference to the settings", function() {
+        var setup = utils.setup();
+        var anothersetup1 = utils.setup({ name: "ian" });
+        var anothersetup2 = utils.setup();
+        should.notStrictEqual(anothersetup1, setup);
+        should.notStrictEqual(anothersetup2, setup);
     });
 });
 
@@ -557,7 +566,7 @@ describe("utils.getAuthOptions", function() {
 describe("utils.getPollerOptions", function() {
     it("returns options applicable to Poller class", function() {
         var source1 = { interval: 1000, proxy: "p", secret: "s" };
-        var ret1 = utils.getPollerOptions(source1);
+        var ret1 = utils.getPollerOptions([source1, null]);
         should.equal(ret1.interval, source1.interval);
         should(ret1.proxy).be.Undefined();
         should(ret1.secret).be.Undefined();
