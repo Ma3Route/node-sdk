@@ -6,6 +6,10 @@
     "contactUs": {
         "create": ["name", "email", "message", "phone"]
     },
+    "directions": {
+        "create": ["townid", "fromid", "toid", "description", "cost", "alternative", "alternativecost"],
+        "get": ["from_id", "to_id", "name"]
+    },
     "drivingReports": {
         "create": ["regno", "drivetype", "latitude", "longitude", "country", "email", "delete", "favorite", "unfavorite"],
         "delete": ["id", "email", "delete"],
