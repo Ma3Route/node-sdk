@@ -639,7 +639,7 @@ describe("utils.removeAuthOptions", function() {
 
 describe("utils.pickParams", function() {
     beforeEach(function() {
-        utils.setup(require("../config"));
+        utils.setup({ enforce_params_filter: true }); // eslint-disable-line camelcase
     });
 
     it("picks out parameters", function() {
