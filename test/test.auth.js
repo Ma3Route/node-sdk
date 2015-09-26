@@ -9,7 +9,7 @@
 // npm-installed modules
 var errors = require("common-errors");
 var should = require("should");
-var URI = require("URIjs");
+var URI = require("urijs");
 
 
 // own modules

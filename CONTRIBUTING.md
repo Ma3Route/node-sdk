@@ -41,13 +41,13 @@ $ git checkout master
 Ensure you checkout your own branch with a suitable name. For example, if you are working to fix a reported bug:
 
 ```bash
-$ git checkout -b hotfix-issue-22
+$ git checkout -b hotfix/issue-22
 ```
 
 If it was a new feature *(called awesome thing)*:
 
 ```bash
-$ git checkout -b feature-awesome-thing
+$ git checkout -b feature/awesome-thing
 ```
 
 

@@ -11,7 +11,7 @@ var _ = require("lodash");
 var errors = require("common-errors");
 var request = require("request");
 var should = require("should");
-var URI = require("URIjs");
+var URI = require("urijs");
 
 
 // own modules
@@ -66,7 +66,7 @@ describe("utils.url", function() {
             "listedAdverts", "bannerAdverts", "driveTypes", "drivingReports",
             "news", "places", "towns", "trafficUpdates", "users", "severity",
             "sseTrafficUpdates", "sseDrivingReports", "sseExternalStream",
-            "contactUs", "externalStream",
+            "contactUs", "externalStream", "directions",
         ];
         endpoints.forEach(function(endpoint) {
             should(utils.url(endpoint)).be.an.instanceOf(URI);
