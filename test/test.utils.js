@@ -11,7 +11,7 @@ var _ = require("lodash");
 var errors = require("common-errors");
 var request = require("request");
 var should = require("should");
-var URI = require("URIjs");
+var URI = require("urijs");
 
 
 // own modules
