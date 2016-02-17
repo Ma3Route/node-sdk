@@ -45,4 +45,4 @@ $ npm test
 
 __The MIT License (MIT)__
 
-Copyright (c) 2015 SkyeHi Limited
+Copyright (c) 2015-2016 SkyeHi Limited
