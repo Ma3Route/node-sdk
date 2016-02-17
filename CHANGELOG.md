@@ -11,3 +11,7 @@ Added:
 
 * added CHANGELOG.md
 
+Fixed:
+
+* fix typo in endpoint URL, `/contactus`
+
