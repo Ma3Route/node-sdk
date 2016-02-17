@@ -11,7 +11,12 @@ Added:
 
 * added CHANGELOG.md
 
+Changed:
+
+* updated dependencies to latest versions: eventsource, lodash, grunt-jsdoc,
+  istanbul, mocha-lcov-reporter, should
+
 Fixed:
 
-* fix typo in endpoint URL, `/contactus`
+* fixed typo in endpoint URL, `/contactus`
 
