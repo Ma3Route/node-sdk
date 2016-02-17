@@ -52,6 +52,12 @@
 }
 
 
+/* Code sample */
+code * {
+    font-family: sans-serif !important;
+}
+
+
 /* list of features */
 .list-features li {
     margin-bottom: 10px;
@@ -75,7 +81,6 @@
 .old-versions h4 {
     margin-bottom: 20px;
 }
-
 
 
 /* list of versions */

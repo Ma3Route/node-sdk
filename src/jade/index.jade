@@ -25,17 +25,17 @@ html
                         code.language-javascript.
                             var sdk = require("ma3route-sdk");
                             
-                            sdk.setup({
+                            sdk.utils.setup({
                                 key: "myapikey",
                                 secret: "SoM3sEcR3tf0rM3o1y",
                             });
                             
                             sdk.trafficUpdates.get(function(err, updates) {
                                 if (err) {
-                                    console.log("something went wrong");
+                                    console.log("something went wrong: %s", err);
                                     return;
                                 }
-                                console.log("got some updates");
+                                console.log("got some updates: %j", updates);
                                 return;
                             });
 
