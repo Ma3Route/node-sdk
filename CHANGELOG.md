@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+Fixed:
+
+* revert unwarranted typo change
+
 
 ## 0.8.2 - 17/02/2016
 
