@@ -161,7 +161,7 @@ describe("Poller#on", function() {
     });
 
     it("event.message: data is passed", function(done) {
-        var items = [ ];
+        var items = [ { id: 1 } ];
         var meta = [ ];
         var res = { };
         var poller = new Poller(function(params, callback) {
@@ -214,7 +214,7 @@ describe("Poller#on", function() {
 describe("Poller#stop", function() {
     it("stops the timer", function(done) {
         var poller = new Poller(function(p, callback) {
-            return callback(null, []);
+            return callback(null, [ { id: 1 } ]);
         }, { interval: 100 });
         poller.on("message", function() {
             poller.stop();

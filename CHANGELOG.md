@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+Changed:
+
+* Poller emits `"message"` event only when one or more items are returned from API
+
 
 ## 0.8.3 - 17/02/2016
 
