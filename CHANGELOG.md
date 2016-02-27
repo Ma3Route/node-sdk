@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 Changed:
 
 * Poller emits `"message"` event only when one or more items are returned from API
+* Poller only fires request, if there's **none** pending
 
 Fixed:
 

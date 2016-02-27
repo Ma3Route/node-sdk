@@ -162,6 +162,20 @@ describe("Poller", function() {
         }, options);
         poller.start();
     });
+
+    it("fires request only if there's none pending", function(done) {
+        var pending = false;
+        var poller = new Poller(function(params, callback) {
+            should(pending).eql(false);
+            pending = true;
+            setTimeout(function() {
+                poller.stop();
+                callback(null, []);
+                return done();
+            }, 500);
+        }, { interval: 10 });
+        poller.start();
+    });
 });
 
 
