@@ -11,6 +11,10 @@ Changed:
 
 * Poller emits `"message"` event only when one or more items are returned from API
 
+Fixed:
+
+* Poller should use the correct last read ID, irrespective of the order of returned items
+
 
 ## 0.8.3 - 17/02/2016
 

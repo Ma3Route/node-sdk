@@ -130,6 +130,23 @@ describe("Poller", function() {
         poller.start();
     });
 
+    it("uses the latest ID as the lastreadId", function(done) {
+        var id = 1;
+        var poller = new Poller(function(params, callback) {
+            should(params.lastreadId).eql(id++);
+            if (id === 5) {
+                poller.stop();
+                return done();
+            }
+            var items = [ { id: id }, { id: id - 1 } ];
+            if (id % 2 === 0) {
+                items = [ { id: id - 1 }, { id: id } ];
+            }
+            return callback(null, items);
+        }, { params: { lastreadId: id }, interval: 10 });
+        poller.start();
+    });
+
     it("allows an asynchronous params function", function(done) {
         var tracker = { track: "no one" };
         var options = {
