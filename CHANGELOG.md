@@ -7,6 +7,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+Added:
+
+* added `sdk.user.resetPassword()` for resetting password
 
 
 ## 0.8.4 - 27/02/2016
