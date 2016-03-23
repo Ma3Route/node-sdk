@@ -8,6 +8,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 
 
+## 0.10.0 - 23/03/2016
+
+Added:
+
+* Added `sdk.places.getPlaces()` for retrieving notable places
+
+
 ## 0.9.0 - 11/03/2016
 
 Added:
