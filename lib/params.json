@@ -26,6 +26,9 @@
         "create": ["title", "description", "mediaurl", "url", "email"],
         "get": ["id", "limit", "lastread_id", "searchkey"]
     },
+    "places": {
+        "get": ["lastread_id", "town_id"]
+    },
     "trafficUpdates": {
         "create": ["severity", "placefrom_id", "placeto_id", "latitude", "longitude", "town_id", "email", "delete", "favorite", "unfavorite", "description", "reportedby"],
         "delete": ["id", "email", "delete"],
