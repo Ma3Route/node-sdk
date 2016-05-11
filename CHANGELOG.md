@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+
+## 0.10.1 - 2016-05-11
+
 Fixed:
 
 * Fix typo in method name i.e. from `sdk.drivingReports.delete` to
