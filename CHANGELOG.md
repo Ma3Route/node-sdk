@@ -1,4 +1,3 @@
-
 # Change Log
 
 All notable changes to this project will be documented in this file.
@@ -13,21 +12,21 @@ Fixed:
   `sdk.drivingReports.deleteOne`
 
 
-## 0.10.0 - 23/03/2016
+## 0.10.0 - 2016-03-23
 
 Added:
 
 * Added `sdk.places.getPlaces()` for retrieving notable places
 
 
-## 0.9.0 - 11/03/2016
+## 0.9.0 - 2016-03-11
 
 Added:
 
 * added `sdk.user.resetPassword()` for resetting password
 
 
-## 0.8.4 - 27/02/2016
+## 0.8.4 - 2016-02-27
 
 Changed:
 
@@ -39,14 +38,14 @@ Fixed:
 * Poller should use the correct last read ID, irrespective of the order of returned items
 
 
-## 0.8.3 - 17/02/2016
+## 0.8.3 - 2016-02-17
 
 Fixed:
 
 * revert unwarranted typo change
 
 
-## 0.8.2 - 17/02/2016
+## 0.8.2 - 2016-02-17
 
 Added:
 
@@ -60,4 +59,3 @@ Changed:
 Fixed:
 
 * fixed typo in endpoint URL, `/contactus`
-
