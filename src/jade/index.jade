@@ -1,15 +1,18 @@
 doctype html
 html
     head
+        meta(charset="utf-8")
+        meta(name="description", content="Ma3Route Node-SDK Documentation")
+        meta(name="author", content="GochoMugo (www.gmugo.in)")
         title Ma3Route | Node-sdk
         link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
         link(rel="stylesheet", href="src/css/prism.css")
         link(rel="stylesheet", href="src/css/index.css")
 
-    body
+    body.container-fluid
 
-        div.body
-            div.page-header
+        div.row
+            div.page-header.col-xs-12
                 div.page-title
                     h1 ma3route
                         br
@@ -57,17 +60,17 @@ html
                         li
                             strong Support.
                             | If you encounter a bug, you can simply report in our <a href="https://github.com/ma3route/node-sdk/issues/">issue tracker</a> and we look into it. Also feature requests are welcome.</li>
-            
+
                 div.col-xs-12.section-versions
                     a.btn.btn-primary.btn-lg(href=latestVersion + "/") Get Started 
                         small= (" v" + latestVersion)
-                    div.old-versions
+                    div.old-versions.container-fluid
                         h4 all versions
                         ul.list-versions
                             each version in versions.slice().reverse()
                                 li
                                     a(href=version + "/")= "v" + version
-        
+
             div.page-footer.col-xs-12
                 p Copyright &copy; 2015-2016 SkyeHi Limited
         script(src="src/js/prism.js")
