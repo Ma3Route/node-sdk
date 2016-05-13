@@ -33,14 +33,10 @@ files.forEach(function(version) {
 DATA.versions = versions;
 
 
-// determining the latest version
+// sort them out
 var latestVersion = DATA.versions[0];
-DATA.versions.forEach(function(version) {
-    if (semver.gt(version, latestVersion)) {
-        latestVersion = version;
-    }
-});
-DATA.latestVersion = latestVersion;
+DATA.versions = DATA.versions.sort(semver.compare);
+DATA.latestVersion = DATA.versions[DATA.versions.length - 1];
 
 
 // export if required
