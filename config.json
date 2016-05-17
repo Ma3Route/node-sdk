@@ -2,7 +2,7 @@
     "baseurl": "https://www.ma3route.com/findit-api/v2/json/",
     "enforce_params_filter": false,
     "request": {
-        "strictSSL": true,
+        "strictSSL": false,
         "json": true
     },
     "poller": {
