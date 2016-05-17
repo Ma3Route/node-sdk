@@ -17,3 +17,6 @@ docs/
 
 # coverage
 coverage/
+
+# auth file in examples
+example/auth.js

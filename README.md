@@ -28,10 +28,16 @@ $ npm run docs
 ```
 
 
+## examples:
+
+To get you started, we have added some examples that you can
+inspect, in [`examples/`][examples].
+
+
 ## development:
 
-Read through the [guide](https://github.com/Ma3Route/node-sdk/CONTRIBUTING.md)
-on contributing to the SDK development.
+Read through the [guide][guide] on contributing to the SDK
+development.
 
 To run the tests:
 
@@ -45,3 +51,6 @@ $ npm test
 __The MIT License (MIT)__
 
 Copyright (c) 2015-2016 SkyeHi Limited
+
+[examples]:https://github.com/Ma3Route/node-sdk/examples/
+[guide]:https://github.com/Ma3Route/node-sdk/CONTRIBUTING.md

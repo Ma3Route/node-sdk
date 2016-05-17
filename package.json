@@ -36,6 +36,7 @@
     "trim-character": "^2.0.1"
   },
   "devDependencies": {
+    "cli-output": "^1.0.0",
     "coveralls": "^2.11.3",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
