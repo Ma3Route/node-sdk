@@ -17,7 +17,7 @@ try {
 
 /**
  * Return the authentication parameters, if available.
- * Otherwise, log to stdout and throw an error indicating missing
+ * Otherwise, log to stderr and throw an error indicating missing
  * authentication parameters.
  *
  * @return {Object} auth

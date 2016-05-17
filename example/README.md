@@ -6,8 +6,8 @@ in [`./sample.auth.js`][auth-file], then rename it to `auth.js`.
 You should also consider using the `MA3ROUTE_API_KEY` and
 `MA3ROUTE_API_SECRET` environment variables instead.
 
-**Security Warning**: Once you are done running the file you should delete
-your API secret from `./auth.js`. **This is a precaution to avoid
+**Security Warning**: Once you are done running the examples you should
+delete your API secret from `./auth.js`. **This is a precaution to avoid
 accidentally publicizing your secret**.
 
 
@@ -28,6 +28,9 @@ your terminal. For example, assuming you are in the `example/` directory:
 $ node fetch-updates.js             # runs the example on 'fetching traffic updates'
 ```
 
+Feel free to go through the source code in the examples' files. They
+have quite good documentation, as comments.
+
 
 ## more:
 
@@ -43,7 +46,7 @@ items retrieved from the API.
 The issue tracker, related to this repository, is purposefully designated
 for development issues and discussions, strictly related to the SDK.
 **Informational** queries should be addressed to
-[our issues repository][issues-repo].
+[our issues repository][issues-repo]. We are waiting for you there.
 
 
 [auth-file]:https://github.com/Ma3Route/node-sdk/examples/sample.auth.js

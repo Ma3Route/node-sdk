@@ -15,10 +15,10 @@ var utils = require("./utils");
  * avoid duplicate code all over.
  *
  * It simply does the following:
- * 1. `require()` the modules we will be using frequently
+ * 1. `require()` the modules we will be using frequently (already done above)
  * 2. get API key and secret
  * 3. setup the SDK so we can use it immediately
- * 4. return an object containing modules from (1) and the SDK module
+ * 4. return an object containing modules from (1) above and the SDK module
  */
 function init() {
     /**
