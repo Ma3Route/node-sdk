@@ -1,6 +1,6 @@
 {
   "name": "ma3route-sdk",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "Node.js SDK for developing with the Ma3Route REST API",
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "trim-character": "^2.0.1"
   },
   "devDependencies": {
+    "cli-output": "^1.0.0",
     "coveralls": "^2.11.3",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",

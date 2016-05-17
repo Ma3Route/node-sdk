@@ -13,6 +13,7 @@ exports = module.exports = function(grunt) {
         eslint: {
             src: ["Gruntfile.js", "index.js", "lib/**/*.js"],
             test: ["test/**/*.js"],
+            examples: ["example/**/*.js"],
         },
         jsdoc: {
             docs: {

@@ -7,6 +7,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 
 
+## 0.10.2 - 2016-05-17
+
+Changed:
+
+* configuration variable `request.strictSSL` defaults to `false`, for now.
+  This is a temporary work-around for the SSL peer verification error
+  while performing requests against the API.
+
+
 ## 0.10.1 - 2016-05-11
 
 Fixed:
