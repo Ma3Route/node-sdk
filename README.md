@@ -5,8 +5,10 @@
 
 [![node](https://img.shields.io/node/v/ma3route-sdk.svg?style=flat-square)](https://www.npmjs.com/package/ma3route-sdk) [![npm](https://img.shields.io/npm/v/ma3route-sdk.svg?style=flat-square)](https://www.npmjs.com/package/ma3route-sdk) [![Build Status](https://img.shields.io/travis/Ma3Route/node-sdk.svg?style=flat-square)](https://travis-ci.org/Ma3Route/node-sdk)
 
-> **The Version 2 of the Ma3Route API will be opened up to the public
-> soon. Hang on tight!**
+> **The Version 2 of the Ma3Route API has been opened up!**
+>
+> Go to https://bitbucket.org/ma3route_team/ma3route-api-documentation/wiki/Introduction.md
+> for more information.
 
 
 ## installation:
