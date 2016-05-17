@@ -21,3 +21,6 @@ Gruntfile.js
 
 # ignore the contribution file
 CONTRIBUTING.md
+
+# ignore examples
+examples/
