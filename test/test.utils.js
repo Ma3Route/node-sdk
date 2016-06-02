@@ -66,7 +66,7 @@ describe("utils.url", function() {
             "listedAdverts", "bannerAdverts", "driveTypes", "drivingReports",
             "news", "places", "towns", "trafficUpdates", "users", "severity",
             "sseTrafficUpdates", "sseDrivingReports", "sseExternalStream",
-            "contactUs", "externalStream", "directions",
+            "contactUs", "externalStream", "directions", "countries",
         ];
         endpoints.forEach(function(endpoint) {
             should(utils.url(endpoint)).be.an.instanceOf(URI);

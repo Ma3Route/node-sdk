@@ -6,6 +6,9 @@
     "contactUs": {
         "create": ["name", "email", "message", "phone"]
     },
+    "countries": {
+        "get": []
+    },
     "directions": {
         "create": ["townid", "fromid", "toid", "description", "cost", "alternative", "alternativecost"],
         "get": ["from_id", "to_id", "name"]

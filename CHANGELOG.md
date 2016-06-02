@@ -12,6 +12,7 @@ Added:
 * Allow creating URIs with arbitrary endpoints
 * Export the inner module, `generate`, for creating custom endpoint
   functions
+* Support the `/countries` endpoint with: `sdk.places.getCountries()`
 
 
 ## 0.10.2 - 2016-05-17
