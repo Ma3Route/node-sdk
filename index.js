@@ -23,6 +23,7 @@ exports = module.exports = {
     users: require("./lib/users"),
     utils: require("./lib/utils"),
     errors: require("common-errors"),
+    generate: require("./lib/generate"),
 };
 
 

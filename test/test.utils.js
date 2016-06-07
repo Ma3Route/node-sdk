@@ -66,7 +66,7 @@ describe("utils.url", function() {
             "listedAdverts", "bannerAdverts", "driveTypes", "drivingReports",
             "news", "places", "towns", "trafficUpdates", "users", "severity",
             "sseTrafficUpdates", "sseDrivingReports", "sseExternalStream",
-            "contactUs", "externalStream", "directions",
+            "contactUs", "externalStream", "directions", "countries",
         ];
         endpoints.forEach(function(endpoint) {
             should(utils.url(endpoint)).be.an.instanceOf(URI);
@@ -89,6 +89,14 @@ describe("utils.url", function() {
         proxy = "https://mustbeproxy.io";
         var url3 = utils.url({ proxy: proxy });
         should(url3.toString()).containEql(proxy);
+    });
+
+    it("allows an arbitrary endpoint to be used", function() {
+        var endpoint = "arbitrary-endpoint";
+        var url = utils.url(endpoint);
+        should(url).be.an.instanceOf(URI);
+        var segments = url.segment();
+        should(segments[segments.length - 1]).equal(endpoint);
     });
 });
 

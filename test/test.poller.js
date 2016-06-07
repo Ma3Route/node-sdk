@@ -242,6 +242,56 @@ describe("Poller#on", function() {
 });
 
 
+describe("Poller#pause", function() {
+    it("pauses the timer", function(done) {
+        // start the poller and let it emit the 'message' event
+        // only one time before pausing it. Wait for some couple
+        // of seconds to see if the getRequest func is actually not fired
+        // again.
+        var firstMessage = true;
+        var poller = new Poller(function(p, callback) {
+            poller.pause();
+            return callback(null, [ { id: 1 } ]);
+        }, { interval: 100 });
+        poller.on("message", function() {
+            should(firstMessage).equal(true);
+            firstMessage = false;
+            setTimeout(function() {
+                poller.stop();
+                return done();
+            }, 500);
+        });
+        poller.start();
+    });
+});
+
+
+describe("Poller#resume", function() {
+    it("resumes a 'paused' poller", function(done) {
+        // Start a poller. Once it fires the getRequest func the first
+        // time and emits a 'message' event, pause it and mark so.
+        // Set a timeout that resumes the poller, once on which emitting
+        // the 'message' event again, we can be sure it has resumed.
+        var wasPaused = false;
+        var poller = new Poller(function(p, callback) {
+            return callback(null, [ { id: 1 } ]);
+        }, { interval: 100 });
+        poller.on("message", function() {
+            if (wasPaused) {
+                poller.stop();
+                return done();
+            }
+            poller.pause();
+            wasPaused = true;
+            setTimeout(function() {
+                poller.resume();
+            }, 400);
+        });
+        poller.start();
+    });
+});
+
+
 describe("Poller#stop", function() {
     it("stops the timer", function(done) {
         var poller = new Poller(function(p, callback) {
