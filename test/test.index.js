@@ -24,7 +24,7 @@ describe("exported module", function() {
         var innerModules = [
             "auth", "bannerAdverts", "drivingReports", "externalStream",
             "listedAdverts", "news", "places", "sse", "trafficUpdates",
-            "users", "utils", "misc",
+            "users", "utils", "misc", "generate",
         ];
         innerModules.forEach(function(mod) {
             should.strictEqual(sdk[mod], require("../lib/" + mod));
