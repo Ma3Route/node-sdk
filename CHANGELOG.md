@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+
+## 0.11.0 - 2016-06-07
+
 Added:
 
 * Add methods `Poller#pause()` and `Poller#resume()`
