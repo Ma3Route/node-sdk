@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 Added:
 
 * Added methods `Poller#pause()` and `Poller#resume()`
+* Allow creating URIs with arbitrary endpoints
 
 
 ## 0.10.2 - 2016-05-17
