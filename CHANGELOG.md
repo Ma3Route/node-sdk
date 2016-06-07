@@ -78,3 +78,115 @@ Changed:
 Fixed:
 
 * fixed typo in endpoint URL, `/contactus`
+
+
+## 0.8.1 - 2015-09-28
+
+Fixed:
+
+* fix `shasum check failure` error in `npm install ma3route-sdk` (a6d19ffcd712c018c4dc2f02f0046d7b2369e246)
+
+
+## 0.8.0 - 2015-09-26
+
+Added:
+
+* implement directions
+* update urijs dependency
+* explicitly depending on peer deps
+
+
+## 0.7.0 - 2015-07-31
+
+Added:
+
+* extend the `Poller` class:
+    * automatically tracks the last read id
+    * accepts asynchronous params function
+    * uses the "error" event for error messages
+    * uses the "message" event only for items it receive
+
+
+## 0.6.0 - 2015-07-30
+
+Added:
+
+
+* new class: `Poller` for polling endpoints. Useful is SSE is not working
+* rebuild the landing page for project site
+* using custom errors for different responses
+* exporting errors module
+
+
+## 0.5.0 - 2015-07-23
+
+Added:
+
+* allow deleting of reports and updates (463cb09)
+* allow creating custom POST requests (705513c)
+* update documentation on module functions (f1c94ef)
+
+Fixed:
+
+* fix severity levels endpoint (8ec7c61)
+* decamelize param keys before picking (d893aa3)
+
+
+## 0.4.0 - 2015-07-22
+
+Added:
+
+* allow configuring the http requests (ce57506)
+
+
+Fixed:
+
+* signing requests when using proxy (e227b89)
+
+
+## 0.3.1 - 2015-07-22
+
+Fixed:
+
+* fix sending params in getOne requests
+
+
+## 0.3.0 - 2015-07-21
+
+Added:
+
+* Parameters are picked. Only allowed parameters are passed in the requests.
+* This parameter filtering can be disable by setting the configuration value for enforce_params_filter to false
+* Documentation has also been updated
+
+
+Fixed:
+
+* keys were being added to the request accidentally
+* GET requests would fail if parameters were not passed
+
+
+## 0.2.0 - 2015-07-20
+
+Added:
+
+* support for external stream added
+
+
+
+## 0.1.1 - 2015-07-19
+
+Changed:
+
+* contribution guidelines have been made
+* npm package has been made more lean
+* documentation has been updated to 0.1.1 about git branching model
+
+Fixed:
+
+* some bugs
+
+
+## 0.0.0 - 2015-07-14
+
+**Out in the Wild**
