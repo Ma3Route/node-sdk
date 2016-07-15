@@ -7,6 +7,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 
 
+
+## 0.11.1 - 2016-07-15
+
+Fixed:
+
+* Fix passing the body to a success callback in POST requests
+
+
 ## 0.11.0 - 2016-06-07
 
 Added:
