@@ -52,7 +52,7 @@ exports = module.exports = {
 
 
 /**
- * A callack passed a success indicator
+ * A callback passed a success indicator
  * @callback successCallback
  * @param {Error} error - error object
  * @param {Object} indicator - status of the operation
@@ -100,6 +100,14 @@ exports = module.exports = {
  * Sends a POST request, usually for creating and updating entities.
  * @typedef {Function} itemsPostOneRequest
  * @param {Object} body - parameters
+ * @param {successCallback} callback
+ */
+
+
+/**
+ * Sends a PUT request, usually for editing entities.
+ * @typedef {Function} itemsPutOneRequest
+ * @param {Object} body
  * @param {successCallback} callback
  */
 
