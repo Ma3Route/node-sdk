@@ -1,7 +1,8 @@
 {
     "bannerAdverts": {
         "create": ["title", "town", "context", "mediaurl", "url", "email", "size"],
-        "get": ["id", "limit", "lastread_id", "town_id", "context", "size"]
+        "get": ["id", "limit", "lastread_id", "town_id", "context", "size"],
+        "edit": ["id", "title", "town", "context", "mediaurl", "url", "email", "size"]
     },
     "contactUs": {
         "create": ["name", "email", "message", "phone"]
@@ -23,7 +24,8 @@
     },
     "listedAdverts": {
         "create": ["title", "description", "site", "phone", "place", "category", "mediaurl", "days", "social", "ademail", "areadescription"],
-        "get": ["id", "limit", "lastread_id", "town_id", "type", "targettext", "withinpromixity"]
+        "get": ["id", "limit", "lastread_id", "town_id", "type", "targettext", "withinpromixity"],
+        "edit": ["id", "title", "description", "site", "phone", "place", "category", "mediaurl", "days", "social", "ademail", "areadescription"]
     },
     "news": {
         "create": ["title", "description", "mediaurl", "url", "email"],

@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+Added:
+
+* Add methods `sdk.bannerAdverts.editOne()` and `sdk.listedAdverts.editOne()`
+
 Fixed:
 
 * Typos in code

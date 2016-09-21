@@ -105,6 +105,14 @@ exports = module.exports = {
 
 
 /**
+ * Sends a PUT request, usually for editing entities.
+ * @typedef {Function} itemsPutOneRequest
+ * @param {Object} body
+ * @param {successCallback} callback
+ */
+
+
+/**
  * Creates and returns a SSE Client.
  * @typedef {Function} SSEClientFactory
  * @param {Object} initDict - initialization options
