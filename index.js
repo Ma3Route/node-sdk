@@ -52,7 +52,7 @@ exports = module.exports = {
 
 
 /**
- * A callack passed a success indicator
+ * A callback passed a success indicator
  * @callback successCallback
  * @param {Error} error - error object
  * @param {Object} indicator - status of the operation

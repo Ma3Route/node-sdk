@@ -39,7 +39,7 @@
     },
     "users": {
         "create": ["firstname", "middlename", "lastname", "gender", "email", "country", "alias"],
-        "modify": ["firstname", "middlename", "lastname", "email", "alias", "resetpassword", "editprofile"],
+        "edit": ["firstname", "middlename", "lastname", "email", "alias", "resetpassword", "editprofile"],
         "login": ["email", "password"],
         "resetPassword": ["email"]
     }

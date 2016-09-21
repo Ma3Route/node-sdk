@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+Fixed:
+
+* Typos in code
 
 
 ## 0.11.1 - 2016-07-15
