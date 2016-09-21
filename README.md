@@ -33,7 +33,7 @@ $ npm run docs
 ## examples:
 
 To get you started, we have added some examples that you can
-inspect, in [`examples/`][examples].
+inspect, in [`example/`][example].
 
 
 ## development:
@@ -54,5 +54,5 @@ __The MIT License (MIT)__
 
 Copyright (c) 2015-2016 SkyeHi Limited
 
-[examples]:https://github.com/Ma3Route/node-sdk/examples/
-[guide]:https://github.com/Ma3Route/node-sdk/CONTRIBUTING.md
+[example]:https://github.com/Ma3Route/node-sdk/tree/master/example
+[guide]:https://github.com/Ma3Route/node-sdk/blob/master/CONTRIBUTING.md
