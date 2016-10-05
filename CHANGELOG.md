@@ -6,6 +6,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+
+## 0.12.1 - 2016-10-05
+
+Fixed:
+
+* Fix syntax error in strict mode (issue [#12](https://github.com/Ma3Route/node-sdk/issues/12))
+
+
+## 0.12.0 - 2016-09-21
+
 Added:
 
 * Add methods `sdk.bannerAdverts.editOne()` and `sdk.listedAdverts.editOne()`
