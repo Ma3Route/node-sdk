@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: lib/poller.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: lib/poller.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @module poller
+ * @description
+ * A Poller for Endpoints
+ */
+
+
+"use strict";
+
+
+// built-in modules
+var events = require("events");
+var util = require("util");
+
+
+// npm-installed modules
+var _ = require("lodash");
+
+
+// own modules
+var utils = require("./utils");
+
+
+/**
+ * Poller Class. Inherits from events.EventEmitter. This poller
+ * is designed in that it polls for new items automatically
+ * without having you implement `lastreadId` logic.
+ *
+ * @example
+ * // create a new poller that keeps retrieiving traffic updates
+ * var poller = new sdk.Poller(sdk.trafficUpdates.get, {
+ *   interval: 5000, // 5 seconds
+ * });
+ *
+ * // listen for new updates
+ * poller.on("message", function(updates, meta, responseObject) {
+ *   console.log("received these updates: %j", updates);
+ * });
+ *
+ * // listen for errors e.g. network failures etc.
+ * // if an error occurs an you not listening on the "error"
+ * // event, the error will bubble up to the domain/process.
+ * poller.on("error", function(err) {
+ *   console.log("error: %s", err);
+ * });
+ *
+ * // you have to explicitly start it
+ * poller.start();
+ *
+ * // lets say we close it after a minute or so
+ * setTimeout(function() {
+ *   poller.stop();
+ * }, 1000 * 60);
+ *
+ * @constructor
+ * @param  {itemsGetRequest} getRequest - request function fired in each poll
+ * @param  {Object} [options]
+ * @param  {Object|Function} [options.params] - parameters passed to get request.
+ *      If `options.params` is a function, it is invoked and its return value is
+ *      assumed an object as the request params.
+ *      If `options.params` requires to do an asynchronous action, it is passed a
+ *      `done` function as its only argument to call with the value when done.
+ * @param  {Integer} [options.interval=5000] - configures the poller's timer
+ */
+function Poller(getRequest, options) {
+    options = options || { };
+    events.EventEmitter.call(this);
+    this._pollerOptions = utils.getPollerOptions([utils.setup().poller, options]);
+    this._get = getRequest;
+    this._params = options.params || { };
+    this._lastreadId = this._params.lastreadId || null;
+    this._timer = null;
+    this._requestPending = false;
+    this._paused = false;
+    return this;
+}
+
+
+// inherit from the EventEmitter class
+util.inherits(Poller, events.EventEmitter);
+
+
+/**
+ * Starts the poller.
+ */
+Poller.prototype.start = function start() {
+    var me = this;
+    function sendRequest(args) {
+        me._get(args, function(err, items, meta, res) {
+            me._requestPending = false;
+
+            if (err) {
+                return me.emit("error", err);
+            }
+            // emit 'message' event if we received items
+            if (items.length) {
+                // since we do not know if we are in ascending or descending
+                // order, please do check
+                var id1 = items[0].id;
+                var id2 = items[items.length - 1].id;
+                me._params.lastreadId = id1 > id2 ? id1 : id2;
+                return me.emit("message", items, meta, res);
+            }
+            return null;
+        });
+    }
+    me._timer = setInterval(function() {
+        // if we are paused, return immediately
+        if (me._paused) {
+            return null;
+        }
+
+        // only send request, if there is none pending
+        if (me._requestPending) {
+            return null;
+        }
+
+        me._requestPending = true;
+        var args = { };
+        if (me._lastreadId) {
+            args.lastreadId = me._lastreadId;
+        }
+        if (_.isFunction(me._params)) {
+            if (me._params.length) {
+                return me._params(function(params) {
+                    _.merge(args, params);
+                    return sendRequest(args);
+                });
+            }
+            _.merge(args, me._params());
+        } else {
+            _.merge(args, me._params);
+        }
+        return sendRequest(args);
+    }, me._pollerOptions.interval);
+};
+
+
+/**
+ * Pause the poller. Note that this does not actually stop the
+ * interval used internally. It basically causes a 'noop' to be
+ * fired instead of an actual network request. This implementation
+ * is simple, and also cheap if you require to pause and resume
+ * multiple times.
+ */
+Poller.prototype.pause = function pause() {
+    this._paused = true;
+    return this;
+};
+
+
+/**
+ * Resume the poller, if it was paused.
+ */
+Poller.prototype.resume = function resume() {
+    this._paused = false;
+    return this;
+};
+
+
+/**
+ * Stops the poller.
+ */
+Poller.prototype.stop = function stop() {
+    this._timer.close();
+    this.removeAllListeners();
+    return this;
+};
+
+
+
+// exporting the constructor
+exports = module.exports = Poller;
+exports.Poller = Poller;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-auth.html">auth</a></li><li><a href="module-bannerAdverts.html">bannerAdverts</a></li><li><a href="module-client.html">client</a></li><li><a href="module-drivingReports.html">drivingReports</a></li><li><a href="module-externalStream.html">externalStream</a></li><li><a href="module-generate.html">generate</a></li><li><a href="module-listedAdverts.html">listedAdverts</a></li><li><a href="module-misc.html">misc</a></li><li><a href="module-news.html">news</a></li><li><a href="module-places.html">places</a></li><li><a href="module-poller.html">poller</a></li><li><a href="module-sse.html">sse</a></li><li><a href="module-trafficUpdates.html">trafficUpdates</a></li><li><a href="module-users.html">users</a></li><li><a href="module-utils.html">utils</a></li></ul><h3>Classes</h3><ul><li><a href="module-client-Client.html">Client</a></li><li><a href="module-poller-Poller.html">Poller</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.2</a> on Wed Oct 05 2016 14:27:52 GMT+0000 (UTC)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
