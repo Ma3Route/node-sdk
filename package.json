@@ -29,7 +29,6 @@
     "debug": "^2.2.0",
     "decamelize": "^1.0.0",
     "eventsource": "^0.2.0",
-    "node-forge": "^0.6.34",
     "request": "^2.57.0",
     "urijs": "^1.16.1",
     "lodash": "^4.4.0",
