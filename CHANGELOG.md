@@ -6,6 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+Fixed:
+
+    * Fix rule ignoring examples in .npmignore
+    * [maintenance] Update dependencies
+
 
 ## 0.12.1 - 2016-10-05
 
