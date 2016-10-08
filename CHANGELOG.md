@@ -6,10 +6,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+Added:
+
+* Add support for Node.js v6.x
+
+Changed:
+
+* [maintenance] Update dependencies
+
 Fixed:
 
-    * Fix rule ignoring examples in .npmignore
-    * [maintenance] Update dependencies
+* Fix rule ignoring examples in .npmignore
 
 
 ## 0.12.1 - 2016-10-05
