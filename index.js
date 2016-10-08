@@ -13,6 +13,7 @@ exports = module.exports = {
     Poller: require("./lib/poller"),
     auth: require("./lib/auth"),
     bannerAdverts: require("./lib/bannerAdverts"),
+    campaigns: require("./lib/campaigns"),
     drivingReports: require("./lib/drivingReports"),
     externalStream: require("./lib/externalStream"),
     listedAdverts: require("./lib/listedAdverts"),

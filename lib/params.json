@@ -4,6 +4,11 @@
         "get": ["id", "limit", "lastread_id", "town_id", "context", "size"],
         "edit": ["id", "title", "town", "context", "mediaurl", "url", "email", "size"]
     },
+    "campaigns": {
+        "create": ["id", "campaignmessage", "campaignlink"],
+        "get": ["user_id"],
+        "edit": []
+    },
     "contactUs": {
         "create": ["name", "email", "message", "phone"]
     },

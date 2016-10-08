@@ -22,19 +22,19 @@ var utils = require("../lib/utils");
 // module variables
 var createOne = {
     endpoints: [
-        "bannerAdverts", "drivingReports", "listedAdverts",
+        "bannerAdverts", "campaigns", "drivingReports", "listedAdverts",
         "trafficUpdates"
     ]
 };
 var get = {
     endpoints: [
-        "bannerAdverts", "drivingReports",
+        "bannerAdverts", "campaigns", "drivingReports",
         "drivingReports.getDriveTypes", "listedAdverts", "trafficUpdates"
     ]
 };
 var getOne = {
     endpoints: [
-        "bannerAdverts", "drivingReports", "listedAdverts",
+        "bannerAdverts", "campaigns", "drivingReports", "listedAdverts",
         "trafficUpdates", "trafficUpdates.getSeverityLevels"
     ]
 };
