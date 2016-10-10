@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 Added:
 
 * Add 'campaigns' sub-module
+* Add 'activations' sub-module
 * Add support for Node.js v6.x
 
 Changed:

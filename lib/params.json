@@ -1,4 +1,7 @@
 {
+    "activations": {
+        "create": ["id", "type", "active", "referenceno"]
+    },
     "bannerAdverts": {
         "create": ["title", "town", "context", "mediaurl", "url", "email", "size"],
         "get": ["id", "limit", "lastread_id", "town_id", "context", "size"],

@@ -12,6 +12,7 @@ exports = module.exports = {
     Client: require("./lib/client"),
     Poller: require("./lib/poller"),
     auth: require("./lib/auth"),
+    activations: require("./lib/activations"),
     bannerAdverts: require("./lib/bannerAdverts"),
     campaigns: require("./lib/campaigns"),
     drivingReports: require("./lib/drivingReports"),
