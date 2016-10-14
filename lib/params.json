@@ -1,8 +1,16 @@
 {
+    "activations": {
+        "create": ["id", "type", "active", "referenceno"]
+    },
     "bannerAdverts": {
         "create": ["title", "town", "context", "mediaurl", "url", "email", "size"],
         "get": ["id", "limit", "lastread_id", "town_id", "context", "size"],
         "edit": ["id", "title", "town", "context", "mediaurl", "url", "email", "size"]
+    },
+    "campaigns": {
+        "create": ["id", "campaignmessage", "campaignlink"],
+        "get": ["user_id"],
+        "edit": []
     },
     "contactUs": {
         "create": ["name", "email", "message", "phone"]

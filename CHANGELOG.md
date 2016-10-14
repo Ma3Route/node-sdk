@@ -7,6 +7,24 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 
 
+
+## 0.13.0 - 2016-10-14
+
+Added:
+
+* Add 'campaigns' sub-module
+* Add 'activations' sub-module
+* Add support for Node.js v6.x
+
+Changed:
+
+* [maintenance] Update dependencies
+
+Fixed:
+
+* Fix rule ignoring examples in .npmignore
+
+
 ## 0.12.1 - 2016-10-05
 
 Fixed:

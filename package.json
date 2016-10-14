@@ -1,6 +1,6 @@
 {
   "name": "ma3route-sdk",
-  "version": "0.12.1",
+  "version": "0.13.0",
   "description": "Node.js SDK for developing with the Ma3Route REST API",
   "repository": {
     "type": "git",
@@ -25,30 +25,30 @@
   },
   "license": "MIT",
   "dependencies": {
-    "common-errors": "^0.5.1",
+    "common-errors": "^1.0.0",
     "debug": "^2.2.0",
     "decamelize": "^1.0.0",
     "eventsource": "^0.2.0",
-    "request": "^2.57.0",
-    "urijs": "^1.16.1",
-    "lodash": "^4.4.0",
-    "trim-character": "^2.0.1"
+    "lodash": "^4.16.3",
+    "request": "^2.75.0",
+    "trim-character": "^2.0.1",
+    "urijs": "^1.18.2"
   },
   "devDependencies": {
     "cli-output": "^1.0.0",
-    "coveralls": "^2.11.3",
+    "coveralls": "^2.11.14",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^18.1.0",
-    "grunt-jsdoc": "^2.0.0",
-    "grunt-mocha-test": "^0.12.7",
-    "istanbul": "^0.4.2",
-    "jsdoc": "^3.3.2",
-    "load-grunt-tasks": "^3.2.0",
-    "mocha": ">=1.20.0",
+    "grunt-jsdoc": "^2.1.0",
+    "grunt-mocha-test": "^0.13.2",
+    "istanbul": "^0.4.5",
+    "jsdoc": "^3.4.2",
+    "load-grunt-tasks": "^3.5.2",
+    "mocha": "^3.1.0",
     "mocha-lcov-reporter": "^1.0.0",
-    "should": "^8.2.2"
+    "should": "^11.1.0"
   },
   "engines": {
     "node": ">= 0.10.0"
