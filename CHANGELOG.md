@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+
+
+## 0.13.0 - 2016-10-14
+
 Added:
 
 * Add 'campaigns' sub-module
