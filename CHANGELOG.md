@@ -6,6 +6,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+Added:
+
+* Add support for Node.js v8.x
+
+Changed:
+
+* (maintenance) Update dependencies
 
 
 ## 0.13.0 - 2016-10-14
