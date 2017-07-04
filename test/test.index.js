@@ -15,6 +15,23 @@ var should = require("should");
 var sdk = require("../index");
 
 
+// module variables
+var accessKey = process.env.MA3ROUTE_KEY;
+if (!accessKey) {
+    throw new Error("Access key missing");
+}
+var accessSecret = process.env.MA3ROUTE_SECRET;
+if (!accessSecret) {
+    throw new Error("Access secret missing");
+}
+
+
+sdk.utils.setup({
+    key: accessKey,
+    secret: accessSecret,
+});
+
+
 describe("exported module", function() {
     it("is an object of course", function() {
         should(sdk).be.an.Object();
