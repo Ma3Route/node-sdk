@@ -25,13 +25,14 @@ describe("images", function() {
     describe("#upload", function() {
         it("works", function(done) {
             images.upload({
-                base64string: fs.readFileSync(utils.data.image.path).toString("base64"),
+                base64String: fs.readFileSync(utils.data.image.path).toString("base64"),
                 extension: utils.data.image.ext,
             }, function(error, body) {
                 should(error).not.be.ok();
-                // TODO: remove the 'console.log' call below.
-                // TODO: assert the body parameters
-                console.log(body);
+                should(body).be.ok();
+                should(body.url).be.a.String();
+                should(body.name).be.a.String().and.endWith(".png");
+                should(body.size).be.a.Number();
                 return done();
             });
         });
