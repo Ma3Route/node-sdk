@@ -28,4 +28,5 @@ var data = {
 exports = module.exports = {
     data: data,
     defaults: defaults,
+    noNetwork: !!process.env.TEST_NO_NETWORK,
 };

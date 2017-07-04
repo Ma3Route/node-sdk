@@ -24,6 +24,7 @@ describe("images", function() {
 
     describe("#upload", function() {
         it("works", function(done) {
+            if (utils.noNetwork) return this.skip();
             images.upload({
                 base64String: fs.readFileSync(utils.data.image.path).toString("base64"),
                 extension: utils.data.image.ext,
@@ -31,7 +32,7 @@ describe("images", function() {
                 should(error).not.be.ok();
                 should(body).be.ok();
                 should(body.url).be.a.String();
-                should(body.name).be.a.String().and.endWith(".png");
+                should(body.name).be.a.String().and.endWith("." + utils.data.image.ext);
                 should(body.size).be.a.Number();
                 return done();
             });
