@@ -9,16 +9,16 @@
 
 |Aspect|Detail|
 |-----|-----|
-|Library version|`1.x.x`|
-|Ma3Route API|v2 &middot; [docs][api-v2]|
+|Library version|`2.x.x`|
+|Ma3Route API|v2 ([docs][api-v2]), v3|
 |Node.js|0.10, 0.11, 0.12, 4, 6, 8|
-|Development|~Active~ **Maintenance**|
+|Development|**Active**|
 
 
 ## installation:
 
 ```bash
-$ npm install ma3route-sdk@1
+$ npm install ma3route/node-sdk#develop
 ```
 
 
