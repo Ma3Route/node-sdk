@@ -6,6 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+
+
+
+## 1.0.0 - 2017-07-04
+
 Added:
 
 * Add support for Node.js v8.x
