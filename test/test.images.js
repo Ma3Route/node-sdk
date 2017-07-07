@@ -20,9 +20,9 @@ var utils = require("./utils");
 
 
 describe("images", function() {
-    this.timeout(utils.defaults.timeout);
-
     describe("#upload", function() {
+        this.timeout(utils.defaults.timeout);
+
         it("works", function(done) {
             if (utils.noNetwork) return this.skip();
             images.upload({
