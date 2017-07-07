@@ -677,3 +677,28 @@ describe("utils.pickParams", function() {
         should.notStrictEqual(picked, original);
     });
 });
+
+
+describe("utils.collectPages", function() {
+    it("collects all pages", function(done) {
+        var firstRun = true;
+        var cycles = 3;
+        utils.collectPages(function(lastReadId, next) {
+            if (firstRun) should(lastReadId).eql(0);
+            else should(lastReadId).be.above(0);
+            firstRun = false;
+
+            should(next).be.a.Function();
+
+            if (cycles === 0) return next(null, []);
+            cycles--;
+            return next(null, [{ id: cycles + 1 }]);
+        }, function(error, items) {
+            should(error).not.be.ok();
+            should(items).be.an.Array();
+            should(items.length).eql(3);
+            should(items).deepEqual([{ id: 3 }, { id: 2 }, { id: 1 }]);
+            return done();
+        });
+    });
+});
