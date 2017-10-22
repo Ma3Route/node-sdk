@@ -17,6 +17,7 @@ exports = module.exports = {
     campaigns: require("./lib/campaigns"),
     drivingReports: require("./lib/drivingReports"),
     externalStream: require("./lib/externalStream"),
+    images: require("./lib/images"),
     listedAdverts: require("./lib/listedAdverts"),
     misc: require("./lib/misc"),
     news: require("./lib/news"),

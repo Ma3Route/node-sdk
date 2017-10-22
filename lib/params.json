@@ -2,6 +2,9 @@
     "activations": {
         "create": ["id", "type", "active", "referenceno"]
     },
+    "advertLocations": {
+        "get": []
+    },
     "bannerAdverts": {
         "create": ["title", "town", "context", "mediaurl", "url", "email", "size"],
         "get": ["id", "limit", "lastread_id", "town_id", "context", "size"],
@@ -29,6 +32,12 @@
     },
     "externalStream": {
         "get": ["id"]
+    },
+    "images": {
+        "create": {
+            "apiVersion": 3,
+            "allowable": ["base64String", "extension"]
+        }
     },
     "listedAdverts": {
         "create": ["title", "description", "site", "phone", "place", "category", "mediaurl", "days", "social", "ademail", "areadescription"],

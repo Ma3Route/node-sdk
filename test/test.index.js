@@ -13,6 +13,24 @@ var should = require("should");
 
 // own modules
 var sdk = require("../index");
+var utils = require("./utils");
+
+
+// module variables
+var accessKey = process.env.MA3ROUTE_KEY;
+if (!accessKey && !utils.noNetwork) {
+    throw new Error("Access key missing");
+}
+var accessSecret = process.env.MA3ROUTE_SECRET;
+if (!accessSecret && !utils.noNetwork) {
+    throw new Error("Access secret missing");
+}
+
+
+sdk.utils.setup({
+    key: accessKey,
+    secret: accessSecret,
+});
 
 
 describe("exported module", function() {

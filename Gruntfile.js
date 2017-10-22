@@ -45,6 +45,8 @@ exports = module.exports = function(grunt) {
         },
     });
 
-    grunt.registerTask("test", ["eslint", "mochaTest"]);
+    grunt.registerTask("lint", ["eslint"]);
+    grunt.registerTask("unit", ["mochaTest"]);
+    grunt.registerTask("test", ["lint", "unit"]);
     grunt.registerTask("docs", ["jsdoc"]);
 };

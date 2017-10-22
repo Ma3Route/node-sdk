@@ -30,25 +30,25 @@ describe("utils.request", function() {
 describe("utils.setup", function() {
     it("returns settings", function() {
         should(utils.setup()).be.an.Object();
-        should.deepEqual(utils.setup(), config);
+        should(Object.keys(utils.setup())).containDeep(Object.keys(config));
     });
 
     it("sets up the SDK settings", function() {
-        var settings = { url: "this is utils.setup thing" };
+        var settings = { testVar: 1 };
         utils.setup(settings);
-        should(utils.setup().url).eql(settings.url);
+        should(utils.setup().testVar).eql(settings.testVar);
     });
 
     it("merges all settings", function() {
-        var newSettings = { request: { strictSSL: false } };
+        var newSettings = { request: { testVar: false } };
         utils.setup(newSettings);
         should(utils.setup().request.json).not.be.Undefined();
-        should(utils.setup().request.strictSSL).eql(false);
+        should(utils.setup().request.testVar).eql(false);
     });
 
     it("does not pass the same/actual reference to the settings", function() {
         var setup = utils.setup();
-        var anothersetup1 = utils.setup({ name: "ian" });
+        var anothersetup1 = utils.setup({ testVar: "ian" });
         var anothersetup2 = utils.setup();
         should.notStrictEqual(anothersetup1, setup);
         should.notStrictEqual(anothersetup2, setup);
@@ -675,5 +675,30 @@ describe("utils.pickParams", function() {
         var original = { i: "i" };
         var picked = utils.pickParams(original, ["i"]);
         should.notStrictEqual(picked, original);
+    });
+});
+
+
+describe("utils.collectPages", function() {
+    it("collects all pages", function(done) {
+        var firstRun = true;
+        var cycles = 3;
+        utils.collectPages(function(lastReadId, next) {
+            if (firstRun) should(lastReadId).eql(0);
+            else should(lastReadId).be.above(0);
+            firstRun = false;
+
+            should(next).be.a.Function();
+
+            if (cycles === 0) return next(null, []);
+            cycles--;
+            return next(null, [{ id: cycles + 1 }]);
+        }, function(error, items) {
+            should(error).not.be.ok();
+            should(items).be.an.Array();
+            should(items.length).eql(3);
+            should(items).deepEqual([{ id: 3 }, { id: 2 }, { id: 1 }]);
+            return done();
+        });
     });
 });

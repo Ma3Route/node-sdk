@@ -1,6 +1,6 @@
 # Ma3Route SDK
 
-> Node.js SDK for developing with the Ma3Route REST API v2
+> Node.js SDK for developing with the Ma3Route REST API v2, v3
 
 [![node](https://img.shields.io/node/v/ma3route-sdk.svg?style=flat-square)](https://www.npmjs.com/package/ma3route-sdk)
  [![npm](https://img.shields.io/npm/v/ma3route-sdk.svg?style=flat-square)](https://www.npmjs.com/package/ma3route-sdk)
@@ -9,16 +9,18 @@
 
 |Aspect|Detail|
 |-----|-----|
-|Library version|`1.x.x`|
-|Ma3Route API|v2 &middot; [docs][api-v2]|
-|Node.js|0.10, 0.11, 0.12, 4, 6, 8|
-|Development|~Active~ **Maintenance**|
+|Library version|`2.x.x`|
+|Ma3Route API|v2 ([docs][api-v2]), v3|
+|Node.js|4, 6, 8|
+|Development|**Active**|
+
+Other library versions: [`1.x.x`][v1]
 
 
 ## installation:
 
 ```bash
-$ npm install ma3route-sdk@1
+$ npm install ma3route/node-sdk
 ```
 
 
@@ -45,11 +47,7 @@ inspect, in [`example/`][example].
 Read through the [guide][guide] on contributing to the SDK
 development.
 
-To run the tests:
-
-```bash
-$ npm test
-```
+See [testing guide][test-guide] on running tests on the SDK.
 
 
 ## license:
@@ -61,3 +59,5 @@ Copyright (c) 2015-2017 SkyeHi Limited
 [api-v2]:https://bitbucket.org/ma3route_team/ma3route-api-documentation/wiki/Introduction.md
 [example]:https://github.com/Ma3Route/node-sdk/tree/master/example
 [guide]:https://github.com/Ma3Route/node-sdk/blob/master/CONTRIBUTING.md
+[test-guide]:https://github.com/Ma3Route/node-sdk/blob/master/test/README.md
+[v1]:https://github.com/Ma3Route/node-sdk/tree/v1
