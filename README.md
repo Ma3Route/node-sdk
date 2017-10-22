@@ -20,7 +20,7 @@ Other library versions: [`1.x.x`][v1]
 ## installation:
 
 ```bash
-$ npm install ma3route/node-sdk
+$ npm install ma3route-sdk
 ```
 
 
