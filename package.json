@@ -10,7 +10,9 @@
   "scripts": {
     "docs": "grunt docs",
     "test": "grunt test",
-    "test-coverage": "istanbul cover _mocha --report lcovonly -- -R spec test/test.*.js"
+    "test-coverage": "istanbul cover _mocha --report lcovonly -- -R spec test/test.*.js",
+    "test:lint": "grunt lint",
+    "test:unit":"grunt unit"
   },
   "keywords": [
     "ma3route",
