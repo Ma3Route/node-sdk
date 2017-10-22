@@ -6,6 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+
+
+
+## 2.0.0 - 2017-10-22
+
 Added:
 
 * Add support for API v3 methods
@@ -13,6 +18,10 @@ Added:
   * `places.getAdvertLocations()`: Retrieve advert locations
   * `images.upload()`: Upload images
   * `utils.collectPages()`: Helper function for collecting data across multiple pages
+
+Changed:
+
+* (maintenance) Update dependencies
 
 Removed:
 
