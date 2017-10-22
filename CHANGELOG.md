@@ -14,6 +14,10 @@ Added:
   * `images.upload()`: Upload images
   * `utils.collectPages()`: Helper function for collecting data across multiple pages
 
+Removed:
+
+* Remove support for Node.js v0.10, v0.11 and v0.12 series
+
 
 ## 1.0.0 - 2017-07-04
 

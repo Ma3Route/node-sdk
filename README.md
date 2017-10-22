@@ -11,7 +11,7 @@
 |-----|-----|
 |Library version|`2.x.x`|
 |Ma3Route API|v2 ([docs][api-v2]), v3|
-|Node.js|0.10, 0.11, 0.12, 4, 6, 8|
+|Node.js|4, 6, 8|
 |Development|**Active**|
 
 
