@@ -2,9 +2,7 @@
  * Tests against the route utilities (utils.js)
  */
 
-
 "use strict";
-
 
 // npm-installed modules
 var _ = require("lodash");
@@ -13,11 +11,9 @@ var request = require("request");
 var should = require("should");
 var URI = require("urijs");
 
-
 // own modules
 var config = _.cloneDeep(require("../config"));
 var utils = require("../lib/utils");
-
 
 describe("utils.request", function() {
     it("is a function that configures request with defaults", function() {
@@ -25,7 +21,6 @@ describe("utils.request", function() {
         should.deepEqual(req, request.defaults(config));
     });
 });
-
 
 describe("utils.setup", function() {
     it("returns settings", function() {
@@ -55,7 +50,6 @@ describe("utils.setup", function() {
     });
 });
 
-
 describe("utils.url", function() {
     it("accepts zero parameters", function() {
         should(utils.url()).be.an.instanceOf(URI);
@@ -63,10 +57,23 @@ describe("utils.url", function() {
 
     it("returns URIjs instances for endpoints", function() {
         var endpoints = [
-            "listedAdverts", "bannerAdverts", "driveTypes", "drivingReports",
-            "news", "places", "towns", "trafficUpdates", "users", "severity",
-            "sseTrafficUpdates", "sseDrivingReports", "sseExternalStream",
-            "contactUs", "externalStream", "directions", "countries",
+            "listedAdverts",
+            "bannerAdverts",
+            "driveTypes",
+            "drivingReports",
+            "news",
+            "places",
+            "towns",
+            "trafficUpdates",
+            "users",
+            "severity",
+            "sseTrafficUpdates",
+            "sseDrivingReports",
+            "sseExternalStream",
+            "contactUs",
+            "externalStream",
+            "directions",
+            "countries",
         ];
         endpoints.forEach(function(endpoint) {
             should(utils.url(endpoint)).be.an.instanceOf(URI);
@@ -100,7 +107,6 @@ describe("utils.url", function() {
     });
 });
 
-
 describe("utils.shuffleArray", function() {
     it("returns an array", function() {
         should(utils.shuffleArray([1, 2])).be.an.Array();
@@ -131,14 +137,12 @@ describe("utils.shuffleArray", function() {
     });
 });
 
-
 describe("utils.createTimestamp", function() {
     it("returns a Number", function() {
         var timestamp = utils.createTimestamp();
         should(timestamp).be.a.Number();
     });
 });
-
 
 describe("utils.sortKeys", function() {
     var obj = { b: "b", a: "a", d: "d", c: "d" };
@@ -160,7 +164,6 @@ describe("utils.sortKeys", function() {
         should.deepEqual(keys, ["a", "b", "c", "d"]);
     });
 });
-
 
 describe("utils.parseResponse", function() {
     var codes = {
@@ -215,10 +218,7 @@ describe("utils.parseResponse", function() {
     });
 
     it("always add an ErrorClass for constructing errors", function() {
-        [
-            codes.clientError,
-            codes.serverError,
-        ].forEach(function(codesCategory) {
+        [codes.clientError, codes.serverError].forEach(function(codesCategory) {
             eachCode(codesCategory, function(code) {
                 var res = { statusCode: code };
                 res = utils.parseResponse(res);
@@ -257,7 +257,10 @@ describe("utils.parseResponse", function() {
         it("401: adds prop .unauthorized and AuthenticationRequiredError", function() {
             var res = parsedRes(401);
             should.equal(res.unauthorized, 401);
-            should.strictEqual(res.ErrorClass, errors.AuthenticationRequiredError);
+            should.strictEqual(
+                res.ErrorClass,
+                errors.AuthenticationRequiredError
+            );
         });
 
         it("403: adds prop .forbidden and NotPermittedError", function() {
@@ -301,7 +304,6 @@ describe("utils.parseResponse", function() {
         });
     });
 });
-
 
 describe("utils.passResponse", function() {
     var error = new Error("some random error");
@@ -363,17 +365,18 @@ describe("utils.passResponse", function() {
                 return done();
             }
             should(err).be.an.instanceOf(errors.HttpStatusError);
-            should(err.message).be.a.String().and.containEql("empty");
+            should(err.message)
+                .be.a.String()
+                .and.containEql("empty");
             should(res.error).be.ok();
             should(res.ErrorClass).be.a.Function();
         });
         callback(null, { body: null });
         callback(null, { body: undefined });
         callback(null, { body: "" });
-        callback(null, { }, { data: "done" });
+        callback(null, {}, { data: "done" });
     });
 });
-
 
 describe("utils.addQueries", function() {
     var excludes = ["secret", "key", "proxy"];
@@ -394,7 +397,10 @@ describe("utils.addQueries", function() {
     });
 
     it("iterates over all params", function() {
-        var expected = ["?qs=querystring&name=gocho", "?name=gocho&qs=querystring"];
+        var expected = [
+            "?qs=querystring&name=gocho",
+            "?name=gocho&qs=querystring",
+        ];
         var params = { qs: "querystring", name: "gocho" };
         var url = utils.url();
         url = utils.addQueries(url, params);
@@ -404,7 +410,7 @@ describe("utils.addQueries", function() {
     });
 
     it("acts on the same URI object passed", function() {
-        var params = { };
+        var params = {};
         var url = utils.url();
         var modifiedUrl = utils.addQueries(url, params);
         should.strictEqual(modifiedUrl, url);
@@ -421,7 +427,7 @@ describe("utils.addQueries", function() {
     it("automatically excludes keys: " + excludes, function() {
         var uri = utils.url();
         excludes.forEach(function(exclude) {
-            var queries = { };
+            var queries = {};
             queries[exclude] = "some damn content";
             utils.addQueries(uri, queries);
             var params = uri.search(true);
@@ -432,7 +438,7 @@ describe("utils.addQueries", function() {
     it("allows the excludes be NOT excluded", function() {
         var uri = utils.url();
         excludes.forEach(function(exclude) {
-            var queries = { };
+            var queries = {};
             queries[exclude] = "some damn content";
             utils.addQueries(uri, queries, false);
             var params = uri.search(true);
@@ -440,7 +446,6 @@ describe("utils.addQueries", function() {
         });
     });
 });
-
 
 describe("utils.allowOptionalParams", function() {
     it("returns an object", function() {
@@ -455,7 +460,9 @@ describe("utils.allowOptionalParams", function() {
     });
 
     it("args.callback is the callback function", function() {
-        var callback = function() { return "isCallback"; };
+        var callback = function() {
+            return "isCallback";
+        };
         var args = utils.allowOptionalParams({}, callback);
         should.strictEqual(args.callback, callback);
     });
@@ -468,16 +475,17 @@ describe("utils.allowOptionalParams", function() {
 
     it("returns empty object as args.params if params is not passed", function() {
         var args = utils.allowOptionalParams(function() {});
-        should.deepEqual(args.params, { });
+        should.deepEqual(args.params, {});
     });
 
     it("returns callback as args.callback if params is not passed", function() {
-        var callback = function() { return "isCallback"; };
+        var callback = function() {
+            return "isCallback";
+        };
         var args = utils.allowOptionalParams(callback);
         should.strictEqual(args.callback, callback);
     });
 });
-
 
 describe("utils.setProxy", function() {
     it("should set url to be used by SDK in making requests", function() {
@@ -493,7 +501,6 @@ describe("utils.setProxy", function() {
     });
 });
 
-
 describe("utils.getProxy", function() {
     it("should return the currently set proxy", function() {
         var proxy = utils.getProxy();
@@ -501,11 +508,10 @@ describe("utils.getProxy", function() {
     });
 });
 
-
 describe("utils.getOptions", function() {
     it("returns empty object if no options are added", function() {
         var ret = utils.getOptions({}, []);
-        should.deepEqual(ret, { });
+        should.deepEqual(ret, {});
     });
 
     it("returns an object with the options", function() {
@@ -532,7 +538,7 @@ describe("utils.getOptions", function() {
     });
 
     it("allows a destination object", function() {
-        var dest = { };
+        var dest = {};
         var source = { red: "green" };
         utils.getOptions(source, ["red"], dest);
         should(dest.red).eql("green");
@@ -546,7 +552,6 @@ describe("utils.getOptions", function() {
     });
 });
 
-
 describe("utils.getURIOptions", function() {
     it("returns options applicable to URI", function() {
         var source = { proxy: "some proxy", notneeded: true };
@@ -555,7 +560,6 @@ describe("utils.getURIOptions", function() {
         should(ret.notneeded).be.Undefined();
     });
 });
-
 
 describe("utils.getAuthOptions", function() {
     it("returns options applicable to Auth", function() {
@@ -570,7 +574,6 @@ describe("utils.getAuthOptions", function() {
     });
 });
 
-
 describe("utils.getPollerOptions", function() {
     it("returns options applicable to Poller class", function() {
         var source1 = { interval: 1000, proxy: "p", secret: "s" };
@@ -580,7 +583,6 @@ describe("utils.getPollerOptions", function() {
         should(ret1.secret).be.Undefined();
     });
 });
-
 
 describe("utils.removeOptions", function() {
     it("deletes keys", function() {
@@ -596,7 +598,6 @@ describe("utils.removeOptions", function() {
         });
     });
 });
-
 
 describe("utils.removeURIOptions", function() {
     it("deletes the keys applicable to URI", function() {
@@ -620,7 +621,6 @@ describe("utils.removeURIOptions", function() {
     });
 });
 
-
 describe("utils.removeAuthOptions", function() {
     it("deletes the keys applicable to URI", function() {
         var params = { key: "some proxy", secret: "some secret" };
@@ -643,7 +643,6 @@ describe("utils.removeAuthOptions", function() {
         should.equal(params.limit, 70);
     });
 });
-
 
 describe("utils.pickParams", function() {
     beforeEach(function() {
@@ -678,27 +677,29 @@ describe("utils.pickParams", function() {
     });
 });
 
-
 describe("utils.collectPages", function() {
     it("collects all pages", function(done) {
         var firstRun = true;
         var cycles = 3;
-        utils.collectPages(function(lastReadId, next) {
-            if (firstRun) should(lastReadId).eql(0);
-            else should(lastReadId).be.above(0);
-            firstRun = false;
+        utils.collectPages(
+            function(lastReadId, next) {
+                if (firstRun) should(lastReadId).eql(0);
+                else should(lastReadId).be.above(0);
+                firstRun = false;
 
-            should(next).be.a.Function();
+                should(next).be.a.Function();
 
-            if (cycles === 0) return next(null, []);
-            cycles--;
-            return next(null, [{ id: cycles + 1 }]);
-        }, function(error, items) {
-            should(error).not.be.ok();
-            should(items).be.an.Array();
-            should(items.length).eql(3);
-            should(items).deepEqual([{ id: 3 }, { id: 2 }, { id: 1 }]);
-            return done();
-        });
+                if (cycles === 0) return next(null, []);
+                cycles--;
+                return next(null, [{ id: cycles + 1 }]);
+            },
+            function(error, items) {
+                should(error).not.be.ok();
+                should(items).be.an.Array();
+                should(items.length).eql(3);
+                should(items).deepEqual([{ id: 3 }, { id: 2 }, { id: 1 }]);
+                return done();
+            }
+        );
     });
 });

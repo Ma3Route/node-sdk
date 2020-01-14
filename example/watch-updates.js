@@ -2,7 +2,6 @@ var ready = require("./init")();
 var sdk = ready.sdk;
 var out = ready.out;
 
-
 /**
  * A 'poller' is an object that uses polling, that is, it checks (and
  * retrieves) new items in the system at a regular interval, say, 30 seconds.
@@ -16,14 +15,12 @@ var out = ready.out;
  *       Therefore, try to make your interval as long as your use-case allows.
  */
 
-
 /**
  * We are creating a poller, for traffic updates.
  */
 var poller = new sdk.Poller(sdk.trafficUpdates.get, {
-    interval: 5000,         // 5 secs = 5 x 1000 ms
+    interval: 5000, // 5 secs = 5 x 1000 ms
 });
-
 
 /**
  * You listen for 'messages', which signify that a new item has been
@@ -32,7 +29,6 @@ var poller = new sdk.Poller(sdk.trafficUpdates.get, {
 poller.on("message", function(updates) {
     out.log("%d new items received", updates.length);
 });
-
 
 /**
  * You listen for 'errors', which signify errors such as network
@@ -46,12 +42,10 @@ poller.on("error", function(error) {
     out.error("caught an error: %s", error);
 });
 
-
 /**
  * You MUST start the polling, by 'hand'!
  */
 poller.start();
-
 
 /**
  * Listening for 'SIGINT' (C-z) so we can exit gracefully.
@@ -60,7 +54,6 @@ process.on("SIGINT", function() {
     out.log("\nC-c caught. Exiting.");
     process.exit();
 });
-
 
 out.log("Polling already started");
 out.log("You can hit Ctrl-C or Cmd-C to exit");

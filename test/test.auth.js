@@ -2,20 +2,16 @@
  * Tests against the authentication module
  */
 
-
 "use strict";
-
 
 // npm-installed modules
 var errors = require("common-errors");
 var should = require("should");
 var URI = require("urijs");
 
-
 // own modules
 var auth = require("../lib/auth");
 var utils = require("../lib/utils");
-
 
 describe("auth.addSignature", function() {
     it("returns a URIjs instance", function() {
@@ -59,8 +55,10 @@ describe("auth.addSignature", function() {
         var secret = "secret";
         var signedUri1 = auth.addSignature(key, secret, uri1);
         var signedUri2 = auth.addSignature(key, secret, uri2);
-        should.equal(signedUri1.search(true).signature,
-            signedUri2.search(true).signature);
+        should.equal(
+            signedUri1.search(true).signature,
+            signedUri2.search(true).signature
+        );
     });
 
     it("removes signature if exists", function() {
@@ -89,8 +87,10 @@ describe("auth.addSignature", function() {
         var secret = "secret";
         var signedWithoutBody = auth.addSignature(key, secret, uri);
         var signedWithBody = auth.addSignature(key, secret, sameUri, body);
-        should.notEqual(signedWithBody.search(true).signature,
-            signedWithoutBody.search(true).signature);
+        should.notEqual(
+            signedWithBody.search(true).signature,
+            signedWithoutBody.search(true).signature
+        );
     });
 
     it("JSON-stringifies body if its an object", function() {
@@ -102,12 +102,23 @@ describe("auth.addSignature", function() {
         var sameUri = uri.clone();
         auth.addSignature(key, secret, uri, body);
         auth.addSignature(key, secret, sameUri, bodyString);
-        should.equal(uri.search(true).signature,
-            sameUri.search(true).signature);
+        should.equal(
+            uri.search(true).signature,
+            sameUri.search(true).signature
+        );
     });
 
     it("thows an AuthenticationRequiredError if the key/secret is not a string", function() {
-        var samples = [-1, 0, 1, { }, { i: "j" }, function() {}, null, undefined];
+        var samples = [
+            -1,
+            0,
+            1,
+            {},
+            { i: "j" },
+            function() {},
+            null,
+            undefined,
+        ];
         var ex = "123";
         var uri = utils.url();
         var body = "body";
@@ -126,7 +137,8 @@ describe("auth.addSignature", function() {
         var secret = "secret";
         var uri = utils.url();
         var body = "body";
-        var signature = "3058dc0ea8b186c87518f4ee747c5297d48c03688588f0929d390acba6415307";
+        var signature =
+            "3058dc0ea8b186c87518f4ee747c5297d48c03688588f0929d390acba6415307";
         auth.addSignature(key, secret, uri, body);
         var params = uri.search(true);
         should.equal(params.signature, signature);
@@ -138,12 +150,13 @@ describe("auth.addSignature", function() {
         var proxiedUri = utils.url("trafficUpdates", { proxy: proxy });
         var key = "key";
         var secret = "secret";
-        var signature1 = auth.addSignature(key, secret, uri).search(true).signature;
-        var signature2 = auth.addSignature(key, secret, proxiedUri).search(true).signature;
+        var signature1 = auth.addSignature(key, secret, uri).search(true)
+            .signature;
+        var signature2 = auth.addSignature(key, secret, proxiedUri).search(true)
+            .signature;
         should.equal(signature2, signature1);
     });
 });
-
 
 describe("auth.sign", function() {
     it("adds timestamp", function() {

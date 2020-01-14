@@ -2,18 +2,14 @@
  * Tests against the places module
  */
 
-
 "use strict";
-
 
 // npm-installed modules
 var should = require("should");
 
-
 // own modules
 var places = require("../lib/places");
 var utils = require("./utils");
-
 
 describe("places", function() {
     var methods = [

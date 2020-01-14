@@ -3,9 +3,7 @@
  * @see https://bitbucket.org/ma3route_team/ma3route-api-documentation/wiki/Home
  */
 
-
 "use strict";
-
 
 // Exporting the modules for each  API object
 exports = module.exports = {
@@ -30,7 +28,6 @@ exports = module.exports = {
     generate: require("./lib/generate"),
 };
 
-
 /**
  * Settings for the SDK. Defaults can be found in the config.json file in root of repo.
  * This is to be passed to utils.setup().
@@ -43,7 +40,6 @@ exports = module.exports = {
  * @see https://github.com/Ma3Route/node-sdk/blob/master/config.json
  */
 
-
 /**
  * A callback passed a collection of items, such as traffic updates.
  * @callback collectionCallback
@@ -52,7 +48,6 @@ exports = module.exports = {
  * @param {Object} meta - meta-data concerning the items
  * @param {Object} response - actual response object
  */
-
 
 /**
  * A callback passed a success indicator
@@ -65,22 +60,19 @@ exports = module.exports = {
  * @param {Object} response - actual response object
  */
 
-
- /**
-  * A callack passed a single item, such as a single traffic update.
-  * @callback itemCallback
-  * @param {Error} error -error object
-  * @param {Object} item - the single item
-  * @param {Object} meta - meta-data concerning the item
-  * @param {Object} response - actual response object
-  */
-
+/**
+ * A callack passed a single item, such as a single traffic update.
+ * @callback itemCallback
+ * @param {Error} error -error object
+ * @param {Object} item - the single item
+ * @param {Object} meta - meta-data concerning the item
+ * @param {Object} response - actual response object
+ */
 
 /**
  * String representing an endpoint. This is solely used internally by the SDK.
  * @typedef {String} Endpoint
  */
-
 
 /**
  * Sends a GET request to fetch an array of items.
@@ -88,7 +80,6 @@ exports = module.exports = {
  * @param {Object} [params] - parameters
  * @param {collectionCallback} callback
  */
-
 
 /**
  * Sends a GET request, to fetch a single item.
@@ -98,7 +89,6 @@ exports = module.exports = {
  * @param {itemCallback} callback
  */
 
-
 /**
  * Sends a POST request, usually for creating and updating entities.
  * @typedef {Function} itemsPostOneRequest
@@ -106,14 +96,12 @@ exports = module.exports = {
  * @param {successCallback} callback
  */
 
-
 /**
  * Sends a PUT request, usually for editing entities.
  * @typedef {Function} itemsPutOneRequest
  * @param {Object} body
  * @param {successCallback} callback
  */
-
 
 /**
  * Creates and returns a SSE Client.

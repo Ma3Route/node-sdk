@@ -2,13 +2,10 @@
  * Test utilities
  */
 
-
 "use strict";
-
 
 // built-in modules
 var path = require("path");
-
 
 // module variables
 var defaults = {
@@ -23,7 +20,6 @@ var data = {
         ext: path.extname(paths.image).slice(1),
     },
 };
-
 
 exports = module.exports = {
     data: data,
