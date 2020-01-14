@@ -6,7 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+Removed:
 
+* Removed support for Node.js v4, v6, v8.
 
 
 ## 2.0.0 - 2017-10-22
