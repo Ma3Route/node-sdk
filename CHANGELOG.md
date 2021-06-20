@@ -6,9 +6,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## 2.1.0 - 2021-06-20
+
+Added:
+
+* Added methods:
+  * `images.uploadForStream()`: Upload images for stream.
+* Added support for Node.js v14, v16.
+
 Removed:
 
-* Removed support for Node.js v4, v6, v8.
+* Removed support for Node.js v4, v6, v8, v10, v12.
 
 
 ## 2.0.0 - 2017-10-22
