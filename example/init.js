@@ -1,14 +1,11 @@
 exports = module.exports = init;
 
-
 // npm-installed modules
 var out = require("cli-output");
-
 
 // own modules
 var sdk = require("..");
 var utils = require("./utils");
-
 
 /**
  * Initialize. This has placed in this separate file so as to
@@ -22,8 +19,8 @@ var utils = require("./utils");
  */
 function init() {
     /**
-    * Get API key and secret.
-    */
+     * Get API key and secret.
+     */
     var auth = utils.getAuth();
 
     /**

@@ -2,18 +2,15 @@ exports = module.exports = {
     getAuth: getAuth,
 };
 
-
 // npm-installed modules
 var out = require("cli-output");
-
 
 // own modules
 // try load the file, fail silently for now if it is missing.
 var auth = {};
 try {
     auth = require("./auth");
-} catch(err) {}
-
+} catch (err) {}
 
 /**
  * Return the authentication parameters, if available.

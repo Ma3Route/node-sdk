@@ -37,6 +37,10 @@
         "create": {
             "apiVersion": 3,
             "allowable": ["base64String", "extension"]
+        },
+        "createForStream": {
+            "apiVersion": 3,
+            "allowable": ["base64String", "extension"]
         }
     },
     "listedAdverts": {

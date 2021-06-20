@@ -2,7 +2,6 @@ var ready = require("./init")();
 var sdk = ready.sdk;
 var out = ready.out;
 
-
 /**
  * We are fetching a single driving report, with ID '7751'.
  */

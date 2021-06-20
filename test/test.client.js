@@ -2,18 +2,14 @@
  * Tests against the client class (client.js)
  */
 
-
 "use strict";
-
 
 // npm-installed modules
 var _ = require("lodash");
 var should = require("should");
 
-
 // own modules
 var Client = require("../lib/client");
-
 
 describe("module:client", function() {
     it("returns a function as the constructor", function() {
@@ -25,7 +21,6 @@ describe("module:client", function() {
     });
 });
 
-
 describe("Client", function() {
     it("does not throw if passed no options", function() {
         should.doesNotThrow(function() {
@@ -36,7 +31,14 @@ describe("Client", function() {
     it("returns the all the module functions as instance method", function() {
         var client = new Client();
         var sdk = require("../index");
-        var excludes = ["Client", "auth", "utils", "errors", "Poller", "generate"];
+        var excludes = [
+            "Client",
+            "auth",
+            "utils",
+            "errors",
+            "Poller",
+            "generate",
+        ];
         for (var moduleName in sdk) {
             // ignore some inner modules
             if (_.includes(excludes, moduleName)) {
