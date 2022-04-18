@@ -21,3 +21,6 @@ coverage/
 
 # auth file in examples
 example/auth.js
+
+# tarballs from `npm pack`
+ma3route-sdk-*.tgz
