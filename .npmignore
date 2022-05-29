@@ -24,3 +24,6 @@ CONTRIBUTING.md
 
 # ignore examples
 example/
+
+# tarballs from `npm pack`
+ma3route-sdk-*.tgz
