@@ -6,6 +6,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+
+## 2.2.0 - 2022-05-29
+
+Added:
+
+* Added methods:
+  * `drivingReports.getTags()`: Fetch tags for driving reports.
+  * `trafficUpdates.getTags()`: Fetch tags for traffic updates.
+
+
 ## 2.1.0 - 2021-06-20
 
 Added:

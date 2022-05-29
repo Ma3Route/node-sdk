@@ -15,9 +15,13 @@ package-lock.json
 
 # documentation
 docs/
+_out/
 
 # coverage
 coverage/
 
 # auth file in examples
 example/auth.js
+
+# tarballs from `npm pack`
+ma3route-sdk-*.tgz
