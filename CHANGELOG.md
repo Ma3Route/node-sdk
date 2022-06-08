@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 Added:
 
 * Support path parameters/variables in endpoints.
+* Support DELETE requests.
 
 
 ## 2.2.0 - 2022-05-29
