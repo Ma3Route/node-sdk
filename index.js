@@ -61,6 +61,12 @@ exports = module.exports = {
  */
 
 /**
+ * A callback passed an error on failure, or nothing otherwise.
+ * @callback emptySuccessCallback
+ * @param {Error} error - error object
+ */
+
+/**
  * A callack passed a single item, such as a single traffic update.
  * @callback itemCallback
  * @param {Error} error -error object
@@ -72,6 +78,14 @@ exports = module.exports = {
 /**
  * String representing an endpoint. This is solely used internally by the SDK.
  * @typedef {String} Endpoint
+ */
+
+/**
+ * Sends a DELETE request to delete a single item.
+ * @typedef {Function} itemsDeleteOneRequest
+ * @param {Number|Object} identifier - ID of the item
+ * @param {Object} [params] - parameters
+ * @param {emptySuccessCallback} callback
  */
 
 /**
