@@ -7,6 +7,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 
 
+## 2.3.0 - 2022-06-09
+
+Added:
+
+* Support path parameters/variables in endpoints.
+* Support DELETE requests.
+* Added methods:
+  * `users.destroyOne()`: Delete a single user.
+
+
 ## 2.2.0 - 2022-05-29
 
 Added:
