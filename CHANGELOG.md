@@ -10,6 +10,8 @@ Added:
 
 * Support path parameters/variables in endpoints.
 * Support DELETE requests.
+* Added methods:
+  * `users.destroyOne()`: Delete a single user.
 
 
 ## 2.2.0 - 2022-05-29

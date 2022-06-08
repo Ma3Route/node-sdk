@@ -62,6 +62,11 @@
     },
     "users": {
         "create": ["firstname", "middlename", "lastname", "gender", "email", "country", "alias"],
+        "delete": {
+            "apiVersion": 3,
+            "allowable": ["id", "userid"],
+            "camelcase": false
+        },
         "edit": ["firstname", "middlename", "lastname", "email", "alias", "resetpassword", "editprofile"],
         "login": ["email", "password"],
         "resetPassword": ["email"]
