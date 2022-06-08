@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+Added:
+
+* Support path parameters/variables in endpoints.
+
 
 ## 2.2.0 - 2022-05-29
 
