@@ -68,6 +68,11 @@
             "camelcase": false
         },
         "edit": ["firstname", "middlename", "lastname", "email", "alias", "resetpassword", "editprofile"],
+        "getOne": {
+            "apiVersion": 3,
+            "allowable": ["id"],
+            "camelcase": false
+        },
         "login": ["email", "password"],
         "resetPassword": ["email"]
     }

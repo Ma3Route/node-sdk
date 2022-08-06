@@ -6,6 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+Added:
+
+* Added methods:
+  * `users.getOneV3()`: Retrieve a single user using API v3.
+
 
 ## 2.3.0 - 2022-06-09
 
